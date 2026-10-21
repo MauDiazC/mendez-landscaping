@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <title>Service Areas | D&G Mendez Landscaping LLC</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Global Project Styles -->
+  <link rel="stylesheet" href="../css/styles.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#f1fcf2", "error-container": "#ffdad6", "secondary-fixed": "#a3f5b1", "on-primary-fixed": "#002110", "surface-dim": "#d1ddd3", "secondary-container": "#a1f2ae", "primary-fixed": "#c3edce", "on-secondary": "#ffffff", "secondary": "#1a6c36", "outline-variant": "#c1c8c0", "on-tertiary-fixed": "#111e17", "primary-fixed-dim": "#a7d0b3", "error": "#ba1a1a", "surface-container": "#e5f1e7", "tertiary-fixed-dim": "#bbcabf", "primary": "#002714", "tertiary-fixed": "#d6e6da", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#3c4a41", "tertiary-container": "#2b3931", "on-tertiary-container": "#93a298", "tertiary": "#16231c", "surface-bright": "#f1fcf2", "outline": "#727972", "on-primary-fixed-variant": "#294e38", "on-tertiary": "#ffffff", "background": "#f1fcf2", "primary-container": "#183d28", "inverse-primary": "#a7d0b3", "on-surface-variant": "#414843", "on-primary-container": "#81a88d", "surface-variant": "#dae5dc", "on-error": "#ffffff", "on-surface": "#141e18", "surface-container-lowest": "#ffffff", "surface-container-highest": "#dae5dc", "on-primary": "#ffffff", "on-background": "#141e18", "secondary-fixed-dim": "#88d896", "on-secondary-fixed": "#00210a", "on-secondary-fixed-variant": "#005224", "surface-tint": "#41664e", "inverse-surface": "#28332c", "surface-container-high": "#e0ebe1", "inverse-on-surface": "#e8f4ea", "surface-container-low": "#ebf7ed", "on-secondary-container": "#20713a" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "gutter-sm": "1rem", "margin-lg": "5rem", "space-md": "1rem", "space-sm": "0.75rem", "gutter-lg": "2rem", "gutter": "1.5rem", "space-3xl": "6rem", "space-lg": "1.5rem", "margin": "1.5rem", "margin-md": "3rem", "space-2xs": "0.25rem", "space-2xl": "4rem", "space-xs": "0.5rem", "space-xl": "2.5rem" }, "fontFamily": { "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-caps": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "title-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "display-hero-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };
+  </script>
+
+  <!-- Translations Engine -->
+  <script src="../js/translations.js"></script>
+
+  <!-- Reusable Web Components -->
+  <script src="../components/navbar.js"></script>
+  <script src="../components/footer.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
+  <!-- Reusable Header / Navbar Web Component -->
+  <app-navbar active-page="service-areas" root-path="../"></app-navbar>
+
+  <!-- Main Page Content -->
+  <main class="w-full pt-28 xl:pt-20 bg-surface min-h-[calc(100vh-80px)]">
+    <div class="flex flex-col w-full">
+<!-- Top Hero & Breadcrumbs Section -->
+<section class="relative w-full overflow-hidden bg-gradient-to-b from-surface via-surface-container-low to-surface py-space-xl md:py-space-2xl">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<!-- Breadcrumb Navigation -->
+<nav aria-label="Breadcrumb" class="flex items-center gap-space-xs text-body-sm font-body-sm text-on-surface-variant mb-space-md">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="../index.html">
+<span class="material-symbols-outlined text-[16px]">home</span>
+<span data-i18n="areas.breadcrumb_home">Home</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-medium" data-i18n="areas.breadcrumb_current">Service Areas</span>
+</nav>
+<!-- Header Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-end">
+<div class="lg:col-span-8 flex flex-col gap-space-sm">
+<!-- Eyebrow Pill Tag -->
+<div class="inline-flex items-center gap-space-xs self-start px-space-sm py-1 rounded-full bg-surface-container-high text-secondary text-label-md font-label-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span data-i18n="areas.hero_badge">Regional Service Footprint &amp; Daily Route Coverage</span>
+</div>
+<!-- Main Page Title -->
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight" data-i18n="areas.hero_title">
+            Landscaping Services <br class="hidden sm:inline"/>
+<span class="text-secondary italic font-light">in Your Area.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed" data-i18n="areas.hero_desc">
+            Providing residential landscape architecture, horticultural stewardship, and custom masonry throughout Greater Metro and surrounding county communities. Check your neighborhood below for active crew dispatch and priority walkthrough scheduling.
+          </p>
+</div>
+<!-- Quick Route Availability Pill Metric -->
+<!-- <div class="lg:col-span-4 flex flex-col items-start lg:items-end justify-end">
+<div class="p-space-md rounded-DEFAULT bg-surface-container-lowest shadow-md flex items-center gap-space-sm w-full sm:w-auto">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]">local_shipping</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-primary leading-tight font-bold">9 Active Crews</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Dispatched on active routes today</div>
+</div>
+</div>
+</div> -->
+</div>
+<!-- Instant ZIP Code Coverage Checker Widget -->
+<div class="mt-space-xl p-space-md md:p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-lg">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-space-md justify-between">
+<div class="flex-1">
+<label class="block font-label-lg text-label-lg text-primary mb-space-2xs" for="zip-search-input" data-i18n="areas.zip_title">
+              Check Immediate Route Availability
+            </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-on-surface-variant text-[20px]">pin_drop</span>
+<input class="w-full pl-12 pr-4 py-3.5 rounded-full bg-surface text-on-surface font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary/40 transition-all placeholder:text-outline" id="zip-search-input" maxlength="5" placeholder="Enter your 5-digit ZIP code (e.g. 40202, 40204, 40207)..." type="text" data-i18n-placeholder="areas.zip_placeholder"/>
+</div>
+</div>
+<div class="shrink-0 flex items-end">
+<button class="w-full sm:w-auto inline-flex items-center justify-between h-13 pl-6 pr-2 py-1 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-all shadow-md group" id="zip-search-btn" type="button">
+<span class="font-label-lg text-label-lg mr-4" data-i18n="areas.zip_btn">Check Availability</span>
+<span class="w-9 h-9 rounded-full bg-secondary flex items-center justify-center text-on-secondary transition-transform group-hover:translate-x-0.5">
+<span class="material-symbols-outlined text-[18px]">travel_explore</span>
+</span>
+</button>
+</div>
+</div>
+<!-- Result feedback container (managed by script) -->
+<div class="hidden mt-space-sm p-space-sm rounded-DEFAULT bg-surface-container text-body-sm font-body-sm text-primary flex items-center gap-2" id="zip-search-feedback">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span id="zip-feedback-text">Territory active. 2 mobile units stationed within 4 miles of your neighborhood.</span>
+</div>
+<!-- Reassurance Subtext Badges -->
+<div class="mt-space-md pt-space-sm flex flex-wrap items-center gap-y-2 gap-x-space-lg text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5 text-secondary font-medium">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+            <span data-i18n="areas.badge_cities">Daily route dispatch across 4 cities</span>
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">request_quote</span>
+            <span data-i18n="areas.badge_estimates">Zero-obligation, guaranteed on-site estimates</span>
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-secondary">shield</span>
+            <span data-i18n="areas.badge_insurance">State licensed, bonded &amp; $2M commercial liability</span>
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Regional Coverage & Fleet Dispatch Module -->
+<section class="w-full py-space-2xl bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<!-- Section Title & Filter Tabs -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-md">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold" data-i18n="areas.map_badge">Operational Grid</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-space-2xs" data-i18n="areas.map_title">Regional Dispatch Map</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl" data-i18n="areas.map_subtitle">
+            Real-time territory map displaying regional dispatch hubs, county operational borders, and daily maintenance loops.
+          </p>
+</div>
+<!-- Filter Segmented Controller -->
+<!-- <div class="inline-flex p-1 rounded-full bg-surface-container-high shadow-inner">
+<button class="px-4 py-2 text-label-md font-label-md rounded-full bg-surface-container-lowest text-primary shadow-sm font-bold transition-all zone-filter-btn" data-filter="all" type="button">
+            All Service Zones
+          </button>
+<button class="px-4 py-2 text-label-md font-label-md rounded-full text-on-surface-variant hover:text-primary transition-all zone-filter-btn" data-filter="maintenance" type="button">
+            Daily Turf &amp; Care
+          </button>
+<button class="px-4 py-2 text-label-md font-label-md rounded-full text-on-surface-variant hover:text-primary transition-all zone-filter-btn" data-filter="design-build" type="button">
+            Design-Build &amp; Stonework
+          </button>
+</div> -->
+</div>
+<!-- Map & Fleet Status Dual Panel -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-stretch">
+<!-- Live Static Map Component with Overlay Pins -->
+<div id="map-container" class="lg:col-span-8 rounded-DEFAULT overflow-hidden shadow-md relative min-h-[460px] flex flex-col justify-between">
+<!-- Real Embedded Google Map -->
+<iframe id="service-areas-map" class="absolute inset-0 w-full h-full border-0 z-0" src="https://maps.google.com/maps?q=Louisville%2C+KY&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=&amp;output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Google Map of Service Areas"></iframe>
+<!-- Gradient scrim for readable controls -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent pointer-events-none z-10"></div>
+<!-- Top Map Overlay Badges -->
+<div class="relative z-20 p-space-md flex flex-wrap items-center justify-between gap-space-sm pointer-events-none">
+<div class="flex items-center gap-space-xs px-3.5 py-1.5 rounded-full bg-surface/90 backdrop-blur-md shadow-sm pointer-events-auto">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary animate-ping"></span>
+<span class="font-label-md text-label-md text-primary font-bold" data-i18n="areas.gps_sync">GPS Sync Active</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface/90 backdrop-blur-md text-body-sm font-body-sm text-on-surface shadow-sm pointer-events-auto">
+<span class="material-symbols-outlined text-[16px] text-secondary">tune</span>
+<span id="map-current-location" data-i18n="areas.coverage_area">Coverage Area: Louisville &amp; Greater Kentuckiana</span>
+</div>
+</div>
+<!-- Bottom Map Highlights Card -->
+<div class="relative z-20 p-space-md pointer-events-none">
+<div class="p-space-md rounded-DEFAULT bg-surface-container-lowest/95 backdrop-blur-md shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md pointer-events-auto">
+<div class="flex items-center gap-space-sm">
+<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div>
+<h4 class="font-title-md text-title-md text-primary" data-i18n="areas.depots_title">Primary Yards &amp; Operations Depots</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="areas.depots_desc">Louisville Operations Depot &amp; Kentuckiana Material Yard</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fleet Status & Hub Sidebar -->
+<div class="lg:col-span-4 flex flex-col gap-space-md">
+<!-- Live Telemetry Card -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-md flex flex-col justify-between">
+<div>
+</div>
+</div>
+<!-- Instant Estimate Callout -->
+<div class="p-space-md rounded-DEFAULT bg-primary text-on-primary shadow-md flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-[28px] text-secondary-fixed">calendar_clock</span>
+<div>
+<div class="font-title-md text-title-md font-bold" data-i18n="areas.walkthrough_title">Need a Walkthrough?</div>
+<div class="font-body-sm text-body-sm text-on-primary-container" data-i18n="areas.walkthrough_desc">Next daylight slot in 24-48 hrs</div>
+</div>
+</div>
+<a class="p-2.5 rounded-full bg-secondary text-on-secondary hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-colors" data-path="get-a-free-estimate" href="#">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- What You Can Expect Across Our Service Footprint -->
+<section class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="text-center max-w-2xl mx-auto mb-space-2xl">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold" data-i18n="areas.std_badge">Standard of Excellence</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-space-2xs" data-i18n="areas.std_title">
+          The D&amp;G Mendez Service Standard
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs" data-i18n="areas.std_desc">
+          Regardless of your ZIP code or county, our operations ensure consistent punctuality, respectful property care, and horticultural mastery.
+        </p>
+</div>
+<!-- 4 Value Proposition Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Pillar 1 -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-sm flex flex-col items-start">
+<div class="w-12 h-12 rounded-full bg-surface-container text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">thermostat</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary mb-space-2xs" data-i18n="areas.pillar1_title">Microclimate Intelligence</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="areas.pillar1_desc">
+            Plants selected for your specific microclimate elevation, sun orientation, and soil porosity to guarantee long-term health and zero nursery replacement waste.
+          </p>
+</div>
+<!-- Pillar 2 -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-sm flex flex-col items-start">
+<div class="w-12 h-12 rounded-full bg-surface-container text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">badge</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary mb-space-2xs" data-i18n="areas.pillar2_title">Dedicated Route Crews</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="areas.pillar2_desc">
+            Consistent superintendents who know your gate codes, dog zones, favored garden beds, and weekend noise preferences down to the minute.
+          </p>
+</div>
+<!-- Pillar 3 -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-sm flex flex-col items-start">
+<div class="w-12 h-12 rounded-full bg-surface-container text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">crisis_alert</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary mb-space-2xs" data-i18n="areas.pillar3_title">Storm Readiness &amp; Care</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="areas.pillar3_desc">
+            Priority routing for heavy wind and sudden ice events. Our dispatch redirects chippers and arborists rapidly to our contracted route clients.
+          </p>
+</div>
+<!-- Pillar 4 -->
+<div class="p-space-lg rounded-DEFAULT bg-surface-container-lowest shadow-sm flex flex-col items-start">
+<div class="w-12 h-12 rounded-full bg-surface-container text-secondary flex items-center justify-center mb-space-md">
+<span class="material-symbols-outlined text-[24px]">receipt_long</span>
+</div>
+<h3 class="font-title-md text-title-md text-primary mb-space-2xs" data-i18n="areas.pillar4_title">Itemized, Zero Travel Fees</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="areas.pillar4_desc">
+            Transparent pricing without arbitrary county boundary surcharges. What we quote on-site is the exact amount reflected on your transparent invoice.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Photo Showcase Section of Local Projects -->
+<section class="w-full py-space-2xl bg-surface">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-space-lg gap-space-sm">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold" data-i18n="areas.showcase_badge">Field Execution</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-space-2xs" data-i18n="areas.showcase_title">Crafted Across the Metro Area</h2>
+</div>
+</div>
+<!-- Image Bento Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="group relative rounded-DEFAULT overflow-hidden shadow-md h-72">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Modern architectural terraced backyard patio in Anchorage, Louisville KY featuring natural bluestone pavers, bespoke cedar wood seating, and lush native perennials under soft morning light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmVlZCnM30MBDzA1xuyFwHKPiCkWg7idjlBFdfe1gt8A5kIxo-6FY2qOZU9vpVobHrBl8YDdrftikO95mcW7_SqC40jB1T0Dq80lscSwbsjj6kH1r4BQWhX8R10a8bSA0Rn44jy6XyQsMrRJrASh3gXP_Z2XJ3lwx6Yg1zDixgofpxzY5gqzfnK3PlDMzQNVzfLhYwWXWMD6qbiEuufqY_Jby7BOylM7r7_JyIjWVBjsv0WEXqir3D"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-md text-on-primary">
+<span class="text-label-caps font-label-caps uppercase text-secondary-fixed" data-i18n="areas.card1_loc">Anchorage Estate</span>
+<div class="font-title-md text-title-md font-bold" data-i18n="areas.card1_title">Terraced Bluestone Hardscaping</div>
+</div>
+</div>
+<div class="group relative rounded-DEFAULT overflow-hidden shadow-md h-72">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Lush manicured hillside estate lawn and layered maple border in Mockingbird Valley, Louisville KY with architectural outdoor lighting and stone retaining walls at sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ-LMPDvM-To05AXHIlFtTz_1YRs2AM7DPvGIKHLKm1C7By9CxqbrXOhxvnYvnk8fdmVUSM4sXEnny2W5BC1XWbsA1QqrEBWAc4JrEQAs4uFFWt5hXk6JTgIX0N2RkmqZjX_iZPVVhYIxHpmqUEvIe_lg8gkrQS3cwQGMiXvJbDZETzL58xW03yw-Eza_2bOEV9k36dnDt-BVCT3CjpTaaIGRB3CgKbpX4fGVK-UBF8B2hXB3WKDPd"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-md text-on-primary">
+<span class="text-label-caps font-label-caps uppercase text-secondary-fixed" data-i18n="areas.card2_loc">Mockingbird Valley Residence</span>
+<div class="font-title-md text-title-md font-bold" data-i18n="areas.card2_title">Hillside Grading &amp; Kentucky Bluegrass</div>
+</div>
+</div>
+<div class="group relative rounded-DEFAULT overflow-hidden shadow-md h-72">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Intimate historic brick courtyard garden in Old Louisville, KY featuring clipped boxwood hedges, flowering perennial borders, custom iron pergola, and limestone pavers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuASMbrQZ991B8n1Rd8vlf9j4KzfeyGDhW246neQJYuhw1ctKgu6F1NxC7_A2vl39rUvsogLHKaUlYo8ZofUgH6JAp9aWnYZktQ4qcm5yGsAvk0BMs69C2biLD_qZ_2W3uXJalPyIL6UeaQgNsktizZtF-VEeZGIEDibb5ppvQJWO33UmSFELtucCkCk7AT7TjaHMFVhgXeWXZ60SrfiA8vuWT2pNE8XIuMg-HeB0lbkDRdveXuNMLCl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent flex flex-col justify-end p-space-md text-on-primary">
+<span class="text-label-caps font-label-caps uppercase text-secondary-fixed" data-i18n="areas.card3_loc">Old Louisville Historic District</span>
+<div class="font-title-md text-title-md font-bold" data-i18n="areas.card3_title">Period-Accurate Brick Masonry &amp; Hedges</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Local Service FAQ Accordion Section -->
+<section id="faqs" class="w-full py-space-3xl bg-surface-container-low">
+<div class="max-w-[960px] mx-auto px-margin md:px-margin-md">
+<div class="text-center mb-space-2xl">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest font-bold" data-i18n="areas.faq_badge">Client Questions</span>
+<h2 class="font-headline-lg text-headline-lg text-primary tracking-tight mt-space-2xs" data-i18n="areas.faq_title">
+          Service Area &amp; Dispatch FAQs
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-space-xs" data-i18n="areas.faq_subtitle">
+          Everything you need to know about route schedules, estate boundaries, and neighborhood quotes.
+        </p>
+</div>
+<!-- Accordion Stack -->
+<div class="space-y-space-sm" id="faq-accordion-group">
+<!-- FAQ 1 -->
+<div class="rounded-DEFAULT bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle-btn w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="areas.faq1_q">How do I confirm if my property is within your standard service boundary in Kentuckiana?</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 transition-transform duration-200">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</span>
+</button>
+<div class="faq-content-panel hidden px-space-md pb-space-md pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n="areas.faq1_a">
+            You can enter your 5-digit postal code into our live checker at the top of this page or contact our office directly. We proudly serve the entire Greater Louisville and Kentuckiana metro area—including Jefferson, Oldham, Shelby, and Bullitt counties in Kentucky, as well as Clark and Floyd counties across the river in Southern Indiana. For large acreage estates just outside this boundary, our design-build division frequently coordinates custom project consultations.
+          </div>
+</div>
+<!-- FAQ 2 -->
+<div class="rounded-DEFAULT bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle-btn w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="areas.faq2_q">Do you charge extra travel fees across counties or over the river into Southern Indiana?</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 transition-transform duration-200">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</span>
+</button>
+<div class="faq-content-panel hidden px-space-md pb-space-md pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n="areas.faq2_a">
+            No. We never charge arbitrary travel surcharges or hidden portal-to-portal fees within our standard Kentuckiana service network. Our crews operate along optimized neighborhood route loops across Louisville and Southern Indiana communities, keeping transit overhead minimal and your service costs predictable and transparent.
+          </div>
+</div>
+<!-- FAQ 3 -->
+<div class="rounded-DEFAULT bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle-btn w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="areas.faq3_q">How quickly can D&amp;G Mendez Landscaping come out for an on-site property walkthrough?</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 transition-transform duration-200">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</span>
+</button>
+<div class="faq-content-panel hidden px-space-md pb-space-md pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n="areas.faq3_a">
+            For seasonal maintenance agreements, cleanups, and property enhancement walkthroughs, an on-site estimate can typically be scheduled within 24 to 48 hours. For comprehensive master-planned hardscaping, stonework, and retaining wall projects across Kentuckiana, our landscape specialists typically schedule consultations within 3 to 5 business days.
+          </div>
+</div>
+<!-- FAQ 4 -->
+<div class="rounded-DEFAULT bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle-btn w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="areas.faq4_q">Do you work with local HOA review boards in communities like Norton Commons or Anchorage?</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 transition-transform duration-200">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</span>
+</button>
+<div class="faq-content-panel hidden px-space-md pb-space-md pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n="areas.faq4_a">
+            Yes, extensively. We have regular experience preparing landscape design submittal packages that comply with strict HOA guidelines across Norton Commons, Anchorage, Lake Forest, Springhurst, Glenview, and historic districts like Old Louisville. We assist with plant species selection, grading specifications, and hardscape cut sheets directly for your review committee.
+          </div>
+</div>
+<!-- FAQ 5 -->
+<div class="rounded-DEFAULT bg-surface-container-lowest shadow-sm overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle-btn w-full p-space-md text-left flex items-center justify-between gap-space-sm focus:outline-none" type="button">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="areas.faq5_q">Can I request seasonal maintenance if my neighbor also uses D&amp;G Mendez Landscaping?</span>
+<span class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-primary shrink-0 transition-transform duration-200">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</span>
+</button>
+<div class="faq-content-panel hidden px-space-md pb-space-md pt-0 text-body-md font-body-md text-on-surface-variant leading-relaxed" data-i18n="areas.faq5_a">
+            Absolutely. In fact, clustering service visits with adjacent or nearby properties in your neighborhood allows us to offer our Kentuckiana Neighborhood Route Discount (up to 10% off recurring seasonal agreements) while minimizing equipment noise and vehicle traffic on your residential street.
+          </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Neighborhood Not Listed? / Out-of-Area Inquiries Callout -->
+<section class="w-full py-space-xl bg-surface">
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="p-space-lg md:p-space-xl rounded-DEFAULT bg-surface-container flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex items-start gap-space-md">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest text-secondary flex items-center justify-center shrink-0 shadow-sm">
+<span class="material-symbols-outlined text-[24px]">explore</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary mb-space-2xs" data-i18n="areas.not_listed_title">Don’t See Your Neighborhood or ZIP Code?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl" data-i18n="areas.not_listed_desc">
+              We frequently expand our daily radius for comprehensive design-build grounds, vineyard estates, and large residential transformations. Contact our concierge to verify route logistics.
+            </p>
+</div>
+</div>
+<a class="inline-flex items-center gap-space-xs px-6 h-12 rounded-full bg-surface-container-lowest text-primary font-label-lg text-label-lg hover:bg-primary hover:text-on-primary transition-all shadow-sm shrink-0" data-path="contact" href="#">
+<span data-i18n="areas.not_listed_btn">Inquire About Your Property</span>
+<span class="material-symbols-outlined text-[18px]">chat</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Closing High-Conversion CTA Banner -->
+<section class="w-full py-space-3xl bg-primary text-on-primary relative overflow-hidden">
+<!-- Subtle background accent glow -->
+<div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<div class="max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg text-center relative z-10">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary-container text-secondary-fixed text-label-md font-label-md mb-space-md">
+<span class="material-symbols-outlined text-[16px]">pin_drop</span>
+<span data-i18n="areas.bottom_badge">Local Route Bookings Open for the Upcoming Season</span>
+</span>
+<h2 class="font-display-hero text-display-hero max-w-3xl mx-auto tracking-tight mb-space-sm text-on-primary" data-i18n="areas.bottom_title">
+        Ready to Transform Your <span class="text-secondary-fixed italic font-light">Local Grounds?</span>
+</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container max-w-2xl mx-auto mb-space-xl leading-relaxed" data-i18n="areas.bottom_desc">
+        Speak directly with our Director Henry Mendez, review custom horticultural specifications, and reserve your priority on-site consultation.
+      </p>
+<!-- Action Buttons -->
+<div class="flex flex-wrap items-center justify-center gap-space-md">
+<a class="inline-flex items-center justify-between h-14 pl-8 pr-2.5 rounded-full bg-secondary text-on-secondary hover:bg-secondary-fixed hover:text-on-secondary-fixed transition-all shadow-lg group" data-path="get-a-free-estimate" href="#">
+<span class="font-label-lg text-label-lg mr-4" data-i18n="areas.bottom_btn_est">Request a Free Estimate</span>
+<span class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary transition-transform group-hover:translate-x-1">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</span>
+</a>
+<a class="inline-flex items-center gap-space-xs h-14 px-8 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg hover:bg-surface-container-high hover:text-primary transition-colors" href="tel:5026679020" data-phone-link>
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">call</span>
+<span data-i18n="areas.bottom_btn_call">Call Dispatch: (502) 667-9020</span>
+</a>
+</div>
+<!-- Trust notes -->
+<div class="mt-space-xl flex flex-wrap items-center justify-center gap-x-space-xl gap-y-space-xs text-body-sm font-body-sm text-on-primary-container/80">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">check_circle</span>
+          <span data-i18n="areas.trust1">Strict No-Fee Cancellation Policy</span>
+        </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">check_circle</span>
+          <span data-i18n="areas.trust2">Prompt 48-Hour Proposal Turnaround</span>
+        </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">check_circle</span>
+          <span data-i18n="areas.trust3">100% Satisfaction Craftsmanship Warranty</span>
+        </span>
+</div>
+</div>
+</section>
+</div>
+  </main>
+
+  <!-- Reusable Footer Web Component -->
+  <app-footer root-path="../"></app-footer>
+
+  <!-- Main Project Script -->
+  <script src="../js/main.js"></script>
+</body>
+</html>

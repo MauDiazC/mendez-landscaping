@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <meta content="web_standard" name="shell-type" />
+  <title>D&G Mendez Landscaping LLC.</title>
+
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+  <!-- Global Project Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "surface": "#f1fcf2", "error-container": "#ffdad6", "secondary-fixed": "#a3f5b1", "on-primary-fixed": "#002110", "surface-dim": "#d1ddd3", "secondary-container": "#a1f2ae", "primary-fixed": "#c3edce", "on-secondary": "#ffffff", "secondary": "#1a6c36", "outline-variant": "#c1c8c0", "on-tertiary-fixed": "#111e17", "primary-fixed-dim": "#a7d0b3", "error": "#ba1a1a", "surface-container": "#e5f1e7", "tertiary-fixed-dim": "#bbcabf", "primary": "#002714", "tertiary-fixed": "#d6e6da", "on-error-container": "#93000a", "on-tertiary-fixed-variant": "#3c4a41", "tertiary-container": "#2b3931", "on-tertiary-container": "#93a298", "tertiary": "#16231c", "surface-bright": "#f1fcf2", "outline": "#727972", "on-primary-fixed-variant": "#294e38", "on-tertiary": "#ffffff", "background": "#f1fcf2", "primary-container": "#183d28", "inverse-primary": "#a7d0b3", "on-surface-variant": "#414843", "on-primary-container": "#81a88d", "surface-variant": "#dae5dc", "on-error": "#ffffff", "on-surface": "#141e18", "surface-container-lowest": "#ffffff", "surface-container-highest": "#dae5dc", "on-primary": "#ffffff", "on-background": "#141e18", "secondary-fixed-dim": "#88d896", "on-secondary-fixed": "#00210a", "on-secondary-fixed-variant": "#005224", "surface-tint": "#41664e", "inverse-surface": "#28332c", "surface-container-high": "#e0ebe1", "inverse-on-surface": "#e8f4ea", "surface-container-low": "#ebf7ed", "on-secondary-container": "#20713a" }, "borderRadius": { "DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px" }, "spacing": { "gutter-sm": "1rem", "margin-lg": "5rem", "space-md": "1rem", "space-sm": "0.75rem", "gutter-lg": "2rem", "gutter": "1.5rem", "space-3xl": "6rem", "space-lg": "1.5rem", "margin": "1.5rem", "margin-md": "3rem", "space-2xs": "0.25rem", "space-2xl": "4rem", "space-xs": "0.5rem", "space-xl": "2.5rem" }, "fontFamily": { "headline-lg-mobile": ["Plus Jakarta Sans"], "headline-md": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "body-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-hero": ["Plus Jakarta Sans"], "label-lg": ["Plus Jakarta Sans"], "headline-lg": ["Plus Jakarta Sans"], "headline-sm": ["Plus Jakarta Sans"], "label-caps": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "display-hero-mobile": ["Plus Jakarta Sans"] }, "fontSize": { "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }], "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "400" }], "body-lg": ["17px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }], "title-md": ["18px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "600" }], "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "700" }], "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.02em", "fontWeight": "600" }], "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "label-caps": ["11px", { "lineHeight": "16px", "letterSpacing": "0.08em", "fontWeight": "700" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.04em", "fontWeight": "600" }], "display-hero-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }] } } } };
+  </script>
+
+  <!-- Reusable Web Components -->
+  <script src="js/translations.js"></script>
+  <script src="components/navbar.js"></script>
+  <script src="components/footer.js"></script>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
+  <!-- Reusable Header / Navbar Web Component -->
+  <app-navbar active-page="home" root-path=""></app-navbar>
+
+
+  <!-- Main Page Content -->
+  <main class="w-full pt-28 xl:pt-20 bg-surface min-h-[calc(100vh-80px)]">
+    <div class="flex flex-col w-full">
+<!-- Top Breadcrumb & Narrative Intro -->
+<section class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pt-space-xl pb-space-lg">
+<div class="flex items-center gap-space-xs text-label-md font-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors flex items-center gap-1" data-path="home" href="#">
+<span class="material-symbols-outlined text-[16px]">cottage</span>
+<span data-i18n="index.breadcrumb_home">Home</span>
+</a>
+<span class="text-outline-variant">/</span>
+<span class="text-primary font-bold" data-i18n="index.breadcrumb_about">About Us</span>
+</div>
+</section>
+<!-- 1. Hero Section & Core Introduction -->
+<section id="about-us" class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-3xl">
+<div class="flex flex-col gap-space-xl">
+<div class="max-w-4xl flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs w-fit px-space-sm py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-md text-label-md font-bold tracking-wide">
+<span class="material-symbols-outlined text-[16px]">park</span>
+<span data-i18n="index.badge_about">About D&G Mendez Landscaping.</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-primary font-bold tracking-tight" data-i18n="index.hero_title">
+          Thoughtful Landscaping. <br class="hidden sm:inline"/>
+<span class="text-secondary font-medium">Lasting Impressions.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl leading-relaxed" data-i18n="index.hero_desc">
+          Founded on the belief that residential outdoor spaces should be enduring living extensions of the home, crafted with horticultural integrity, architectural precision, and respectful client partnerships. We bridge the gap between botanical science, soil vitality, and generational stonework.
+        </p>
+</div>
+<!-- Trust Pillars / Statistics Strip -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter bg-surface-container-lowest p-space-lg rounded-lg shadow-sm">
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">workspace_premium</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.pillar1_title">ISA-Certified</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug" data-i18n="index.pillar1_desc">Certified Specialists</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">eco</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.pillar2_title">100% Regional</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug" data-i18n="index.pillar2_desc">Eco-Adapted Native Flora &amp; Soil Cultivation</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">verified_user</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.pillar3_title">365-Day Guarantee</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug" data-i18n="index.pillar3_desc">Full Botanical Replacement Warranty Program</span>
+</div>
+</div>
+<div class="flex items-start gap-space-sm p-space-sm rounded bg-surface-container-low">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.pillar4_title">Fixed-Price Clarity</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-snug" data-i18n="index.pillar4_desc">Transparent, Itemized Penny-Exact Contracts</span>
+</div>
+</div>
+</div>
+<!-- Hero Panoramic Feature Frame -->
+<div class="relative w-full rounded-lg overflow-hidden shadow-md">
+<div id="hero-panoramic-image" class="w-full h-[380px] md:h-[500px] bg-cover bg-center" data-alt="A lush high-end Pacific Northwest architectural estate garden with clean hand-chiseled fieldstone retaining walls, flourishing perennial borders, layered D&G Mendez conifers, manicured emerald lawn, and warm afternoon light falling through ancient cedar branches. The scene conveys absolute serenity, craftsmanship, and organic luxury in deep forest green and natural granite tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBlXfNmbD5_3CENgXQiK8syx9NB2Eo5Yg2x8pVOaHQOSN8lsvREwcJeI5NlC_1AhSzKuA49bqUFJFQ7x37pJIu9t-ERjp7AeHcazcl6HYW3-bsaXO-GJNwYsnQz4RWTEQX2qNRplhKpObOp-Anv9E-F7_yGR2Mmp1eeNkzJWGWaFn26tJNQh9HKPeFXG4qXyhQCCZR-5ADSyVBvtNVj1KjQfjqWOSGxJOmb1dZqQApWB0Sq0rlIEkmG')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent flex flex-col justify-end p-space-md md:p-space-xl">
+<div class="max-w-xl text-on-primary">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary-fixed mb-space-2xs block" data-i18n="index.hero_card_badge">Louisville Ky.</span>
+<h3 class="font-headline-md text-headline-md font-bold mb-space-2xs text-on-primary" data-i18n="index.hero_card_title">Projects with experience and confidence</h3>
+<p class="font-body-sm text-body-sm text-surface-variant/90" data-i18n="index.hero_card_desc">Curated with thermal bluestone courtyards, precision low-voltage lighting, and over forty drought-resilient perennial varieties.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Our Story & Purpose (Mission & Approach) -->
+<section id="our-story" class="w-full bg-surface-container-low py-space-3xl">
+<div class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<!-- Left Editorial Story -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="inline-flex items-center gap-space-xs text-secondary font-label-caps text-label-caps uppercase tracking-wider font-bold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span data-i18n="index.story_badge">Our Foundation &amp; Philosophy</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold" data-i18n="index.story_title">
+            Cultivating Living Sanctuaries
+          </h2>
+<div class="flex flex-col gap-space-sm font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+<p data-i18n="index.story_p1">
+              D&G Mendez Landscaping began with a deliberate commitment: to replace the transient, high-turnover nature of conventional "mow-and-blow" yard work with dedicated, holistic residential grounds stewardship. We believed private gardens deserved the same architectural rigor, geological integrity, and botanical science traditionally reserved for public conservatories and grand estates.
+            </p>
+<p data-i18n="index.story_p2">
+              Over nearly two decades, we have evolved into an interdisciplinary collective. Before a shovel touches the earth, our team maps local microclimates, analyzes subsoil microbiomes, calculates sun transit angles, and designs water-retention grades.
+            </p>
+<p data-i18n="index.story_p3">
+              From hand-chiseled dry-stack fieldstone to mature native plantings that flourish year after year, every square foot is deliberate, resilient, and deeply peaceful.
+            </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-primary font-label-lg text-label-lg font-bold shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">family_restroom</span>
+<span data-i18n="index.tag_privately_owned">Privately Owned &amp; Operated</span>
+</div>
+<div class="flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container text-primary font-label-lg text-label-lg font-bold shadow-sm">
+<span class="material-symbols-outlined text-[20px] text-secondary">location_on</span>
+<span data-i18n="index.tag_community">Locally Rooted Community Focus</span>
+</div>
+</div>
+</div>
+<!-- Right Pull-Quote Card & Image Vignette -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="bg-surface-container-lowest p-space-xl rounded-lg shadow-md flex flex-col gap-space-md relative overflow-hidden">
+<div class="w-12 h-12 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[28px]">format_quote</span>
+</div>
+<blockquote class="font-title-md text-title-md text-primary font-semibold italic leading-snug" data-i18n="index.quote_text">
+              “We don’t simply install plants or lay pavers; we cultivate micro-ecosystems designed to thrive for generations, harmonizing architecture with the quiet rhythm of the earth.”
+            </blockquote>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="Close-up professional headshot of Henry Mendez a seasoned horticulturist with a thoughtful expression, dressed in organic linen workwear against an outdoor arboretum backdrop with diffused natural lighting." src="assets/images/henry.jpg"/>
+</div>
+<div class="flex flex-col">
+<span class="font-label-lg text-label-lg text-primary font-bold" data-i18n="index.quote_author">Henry Mendez</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.quote_role">Founder</span>
+</div>
+</div>
+</div>
+<!-- Secondary Visual Card -->
+<div class="rounded-lg overflow-hidden shadow-sm relative h-48">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up detail of skilled hands placing a precision-chiseled piece of natural bluestone onto a prepared aggregate foundation, surrounded by fine moss and stone-dust finishing. Rich tactile masonry craftsmanship." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAF3MMbt6nJ7QhiQsgPH8ygzOKm6DXNak8_MyjFW9RIEBy6OUS9F7tFXUnZNiqKkWKsKEToftVSLZX0nCYgBZu5OQC9jr950_TK0i8kjH3dYQKVADzZ_lTCM5QwrJS6eO5RsDPeeMwCbECgY7Hgst-GSbHhcqDNEJXFTM4V2aGSC0RPn-npTslag8w-4Cbfqnh-bLCtjCS3U1tg_ggx3xDExU6xgZHnHOOryHCa0wnyeLNRPynoeYI1')"></div>
+<div class="absolute bottom-2 left-2 right-2 bg-surface-container-lowest/90 backdrop-blur-md px-space-sm py-space-2xs rounded flex items-center justify-between">
+<span class="font-label-md text-label-md text-primary font-bold" data-i18n="index.precision_title">Architectural Precision</span>
+<span class="font-body-sm text-body-sm text-secondary" data-i18n="index.precision_desc">Dry-stack &amp; Permeable Paver Systems</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Our Four Landscaping Philosophies (Core Values) -->
+<section id="philosophies" class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-3xl">
+<div class="flex flex-col gap-space-2xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<div class="max-w-2xl flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold" data-i18n="index.philo_badge">The Pillars Behind Every Garden</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold" data-i18n="index.philo_title">
+            Four Foundational Philosophies
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md" data-i18n="index.philo_subtitle">
+          Our standards are rooted in scientific discipline, environmental ethics, and enduring residential construction.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Philosophy 1 -->
+<div class="flex flex-col justify-between p-space-lg rounded-lg bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[26px]">yard</span>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold" data-i18n="index.philo1_cat">01 / BOTANY</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.philo1_title">Microclimate-First Plant Selection</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.philo1_desc">
+              We analyze soil pH, subsurface moisture tables, wind shear, and solar hours before prescribing any species. This ensures effortless long-term vitality and negligible water consumption.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<span class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1">
+<span data-i18n="index.philo1_tag">Zero-Guesswork Planting</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Philosophy 2 -->
+<div class="flex flex-col justify-between p-space-lg rounded-lg bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[26px]">foundation</span>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold" data-i18n="index.philo2_cat">02 / HARDSCAPING</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.philo2_title">Architectural Structural Integrity</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.philo2_desc">
+              Hand-chiseled native stone, laser-calibrated slope grading, and aggregate compaction bases twice the municipal standard guarantee driveways, steps, and retaining walls built for decades.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<span class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1">
+<span data-i18n="index.philo2_tag">Decade-Proof Masonry</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Philosophy 3 -->
+<div class="flex flex-col justify-between p-space-lg rounded-lg bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[26px]">compost</span>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold" data-i18n="index.philo3_cat">03 / SOIL BIOLOGY</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.philo3_title">Ecological Stewardship &amp; Soil Health</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.philo3_desc">
+              True beauty begins underground. We prioritize mycorrhizal inoculation, premium organic compost, native pollinator corridors, and strict zero-toxic-runoff protocols for children and pets.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<span class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1">
+<span data-i18n="index.philo3_tag">Living Organic Substrates</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Philosophy 4 -->
+<div class="flex flex-col justify-between p-space-lg rounded-lg bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow group">
+<div class="flex flex-col gap-space-sm">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[26px]">handshake</span>
+</div>
+<div class="flex flex-col gap-space-2xs">
+<span class="font-label-caps text-label-caps text-secondary font-bold" data-i18n="index.philo4_cat">04 / INTEGRITY</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.philo4_title">Radical Communication &amp; Respect</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.philo4_desc">
+              Daily end-of-day site sweeps, magnetic nail rakes, punctual crew arrivals, guaranteed completion schedules, and transparent, locked contracts without mid-project surprise change orders.
+            </p>
+</div>
+<div class="mt-space-md pt-space-xs">
+<span class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1">
+<span data-i18n="index.philo4_tag">White-Glove Job Sites</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Master Craft & Horticultural Leadership Team -->
+<!-- <section id="team" class="w-full bg-surface-container-low py-space-3xl">
+<div class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg flex flex-col gap-space-2xl">
+<div class="flex flex-col max-w-3xl gap-space-2xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold">Expertise in Every Specimen</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold">
+          Meet the Custodians of Your Outdoor Spaces
+        </h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          A collaborative collective of landscape architects, ISA-certified arborists, master stone masons, and turf scientists dedicated to creating heirloom outdoor grounds.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter"> -->
+<!-- Team Member 1 -->
+<!-- <div class="flex flex-col bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="h-64 w-full overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Editorial portrait of Henry, founder of D&G Mendez Landscaping, standing in a serene architectural garden with blueprints in hand, wearing durable chore coat, warm morning lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJduzWs_GytgiO1X8Z8VLSFnHQVBecyTHoAVdDZ_VlFGs-vvLdguZ_8vYjRmStNC8H2i1h3avLZlgzr5SSQDMxhcA0UloRVcvY6IrpfB03CtWlvKHiE2buHPxDbqp4UcaPEzK840GMP5p8vri7YQjWohbyUT19Mje9JFZ6C6P-lMdLsMGsOxiKIjKYcdNXovWDkzTjBEsdlZ0LLf6D-xwJ6Uh5jVgFiDcis3l1RTw1McCMa0zHZCqu"/>
+<div class="absolute bottom-2 left-2 bg-primary/85 backdrop-blur-sm text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full">
+              B.S. Landscape Architecture
+            </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs flex-1 justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Marcus Thorne</h3>
+<p class="font-label-md text-label-md text-secondary font-medium">Founder &amp; Principal Landscape Architect</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed">
+                18+ years crafting high-end residential estates. Marcus directs our overarching master site planning and spatial symmetry.
+              </p>
+</div>
+<div class="pt-space-xs border-t border-surface-container">
+<span class="font-label-caps text-label-caps uppercase text-outline block mb-0.5">Signature Element</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium italic">“Japanese Maples &amp; dry-laid granite pathways.”</span>
+</div>
+</div> -->
+<!-- </div> -->
+<!-- Team Member 2 -->
+<!-- <div class="flex flex-col bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="h-64 w-full overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Professional photo of Dr. Elena Rostova, botanist and soil scientist, holding a root sample in a greenhouse nursery setting, warm gentle smile, surrounded by native fern varieties and specimen saplings." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlZPGahVSxnpt0cr1V0S2LJ8BCSE8tK82waJBoYG9y67FQV6MDxtsAAuf9AmxW_RjyCBfE5EyiX8PtbgSOcCq28drvBiXUgojF8jb6yWsqRRdAYcQI_Q-sD3jfhL7CiAH9Afxnn84_CpY8cfEiRDQ94ZTTuG3aBhdW0STF5avZoe8Hh5MM63pYWf9zU51rdlPTqHkpvBlG13sfIIZ9v3cM2HmJQMk6HO5dYN2pdW_ov3XfkFhXQspn"/>
+<div class="absolute bottom-2 left-2 bg-primary/85 backdrop-blur-sm text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full">
+              Ph.D. Plant Biology • ISA Arborist
+            </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs flex-1 justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Dr. Elena Rostova</h3>
+<p class="font-label-md text-label-md text-secondary font-medium">Head Horticulturalist &amp; Soil Scientist</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed">
+                Specialist in regional native flora, organic amendments, and tree longevity. She ensures your garden remains self-sustaining.
+              </p>
+</div>
+<div class="pt-space-xs border-t border-surface-container">
+<span class="font-label-caps text-label-caps uppercase text-outline block mb-0.5">Signature Element</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium italic">“Polystichum munitum (Western Sword Fern) &amp; rich forest loam.”</span>
+</div>
+</div>
+</div> -->
+<!-- Team Member 3 -->
+<!-- <div class="flex flex-col bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="h-64 w-full overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Authentic portrait of Mateo Alvarez, master stonemason, smiling proudly in work gloves beside a meticulously crafted dry-stack stone retaining wall on a sunny residential property." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9TesQx4S6FmswyiYmQYE5zQkyrKm1I94S9dxdEDiiO8ey-KeaX5426lYiTPNG4PjHSPsDCkqMrh7-_Cuv0PrlOK5b8bl7hkBFJ2mp4l0gpQ6dyG8sWf5gJuBUvu2yh2qHXW9vQAqFPdVVXyKUEpWFqUyVduTjJBdjlySItnuzsr9vAz1lYtmS87vkuwOYCvK9HqjMR7aIWVQ2fmzXGtbuk2WKBR0VlRN4pBtha-5C8B72EYgGzMvc"/>
+<div class="absolute bottom-2 left-2 bg-primary/85 backdrop-blur-sm text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full">
+              20+ Years Master Masonry
+            </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs flex-1 justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Mateo Alvarez</h3>
+<p class="font-label-md text-label-md text-secondary font-medium">Master Mason &amp; Hardscaping Lead</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed">
+                Generational craftsman specializing in thermal bluestone, dry-stack basalt walls, and permeable driveway engineering.
+              </p>
+</div>
+<div class="pt-space-xs border-t border-surface-container">
+<span class="font-label-caps text-label-caps uppercase text-outline block mb-0.5">Signature Element</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium italic">“Natural cleaved bluestone with razor-tight joints.”</span>
+</div>
+</div>
+</div> -->
+<!-- Team Member 4 -->
+<!-- <div class="flex flex-col bg-surface-container-lowest rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all">
+<div class="h-64 w-full overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover" data-alt="Editorial portrait of Sarah Lin, client experience director, smiling warm and welcoming while holding a project tablet on an immaculate stone patio terrace, bright modern lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhSWBw_9Ccrms1XZZqegTrQkoQ6DZrn66k4-OTWbCXOgdidqoXNujix1CrLoqbIZpBSNl-4XaMKzWZ27OG4VYyreyQnf-kkX5_sbYTiRj508Hk5-jrlYyEVSaSSlRYdXL4VuIaDWCU6RIlnj9YWrJo_cMVdPJRiWETTZebLp1FVKkXOx43O8wpJnSBFld8bHz5GF9IRRic4wJXZSbmj5apZ1rKKhAaBe7Qfu6V1rZJg-zsGKWGs9nV"/>
+<div class="absolute bottom-2 left-2 bg-primary/85 backdrop-blur-sm text-on-primary font-label-caps text-label-caps px-2 py-0.5 rounded-full">
+              PMP Certified • Client Concierge
+            </div>
+</div>
+<div class="p-space-md flex flex-col gap-space-xs flex-1 justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-primary font-bold">Sarah Lin</h3>
+<p class="font-label-md text-label-md text-secondary font-medium">Client Experience &amp; Project Director</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-space-2xs leading-relaxed">
+                Your dedicated single point of contact. Coordinates permits, nursery selections, timeline logistics, and day-to-day communication.
+              </p>
+</div>
+<div class="pt-space-xs border-t border-surface-container">
+<span class="font-label-caps text-label-caps uppercase text-outline block mb-0.5">Signature Element</span>
+<span class="font-body-sm text-body-sm text-on-surface font-medium italic">“Flawless project milestones &amp; calm homeowner peace of mind.”</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section> -->
+<!-- 5. "What to Expect When Working With Us" (The Client Experience Standard) -->
+<section id="process" class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-3xl">
+<div class="flex flex-col gap-space-2xl">
+<div class="flex flex-col max-w-2xl gap-space-2xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold" data-i18n="index.process_badge">The Client Experience Standard</span>
+<h2 class="font-headline-lg text-headline-lg text-primary font-bold" data-i18n="index.process_title">
+          White-Glove Service From Initial Consultation to Handover
+        </h2>
+<p class="font-body-md text-body-md text-on-surface-variant" data-i18n="index.process_subtitle">
+          We treat your property with absolute reverence. Here is our structured, stress-free four-stage journey.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter relative">
+<!-- Step 1 -->
+<div class="flex flex-col gap-space-sm p-space-lg rounded-lg bg-surface-container-lowest shadow-sm relative">
+<div class="flex items-center justify-between">
+<span class="font-display-hero text-[36px] font-bold text-secondary/30">01</span>
+<span class="material-symbols-outlined text-[24px] text-secondary">explore</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.step1_title">Respectful On-Site Assessment</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.step1_desc">
+            Prompt arrival, comprehensive property walking audit, soil compaction testing, shade path measurements, and attentive active listening to your lifestyle needs.
+          </p>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col gap-space-sm p-space-lg rounded-lg bg-surface-container-lowest shadow-sm relative">
+<div class="flex items-center justify-between">
+<span class="font-display-hero text-[36px] font-bold text-secondary/30">02</span>
+<span class="material-symbols-outlined text-[24px] text-secondary">architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.step2_title">3D Visual &amp; Fixed Proposal</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.step2_desc">
+            Photorealistic rendering of your finished grounds paired with an itemized, transparent budget. Zero ambiguity, no surprise markups, locked completion schedules.
+          </p>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col gap-space-sm p-space-lg rounded-lg bg-surface-container-lowest shadow-sm relative">
+<div class="flex items-center justify-between">
+<span class="font-display-hero text-[36px] font-bold text-secondary/30">03</span>
+<span class="material-symbols-outlined text-[24px] text-secondary">cleaning_services</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.step3_title">Considerate, Low-Impact Build</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.step3_desc">
+            Pristine turf protection mats, respectful equipment operating hours, daily magnetic nail sweeps, and end-of-day progress photo summaries via text.
+          </p>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col gap-space-sm p-space-lg rounded-lg bg-surface-container-lowest shadow-sm relative">
+<div class="flex items-center justify-between">
+<span class="font-display-hero text-[36px] font-bold text-secondary/30">04</span>
+<span class="material-symbols-outlined text-[24px] text-secondary">task_alt</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="index.step4_title">Handover &amp; Care Warranty</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed" data-i18n="index.step4_desc">
+            Guided evening and day walkthrough, tailored botanical seasonal care manual, instant 365-day warranty activation, and recurring maintenance scheduling options.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- 6. Standards, Accreditations & Sustainable Certifications -->
+<section id="accreditations" class="w-full bg-surface-container-low py-space-2xl">
+<div class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg">
+<div class="flex flex-col items-center text-center gap-space-lg">
+<div class="flex flex-col items-center gap-space-2xs">
+<span class="font-label-caps text-label-caps uppercase tracking-wider text-secondary font-bold" data-i18n="index.accred_badge">Verified Excellence</span>
+<h2 class="font-headline-md text-headline-md text-primary font-bold" data-i18n="index.accred_title">Accreditations &amp; Industry Standards</h2>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter w-full">
+<div class="p-space-md rounded bg-surface-container-lowest shadow-sm flex flex-col items-center gap-space-xs text-center">
+<span class="material-symbols-outlined text-[32px] text-secondary">forest</span>
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.accred1_title">ISA Arborists</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.accred1_desc">Certified Arborists On Staff</span>
+</div>
+<div class="p-space-md rounded bg-surface-container-lowest shadow-sm flex flex-col items-center gap-space-xs text-center">
+<span class="material-symbols-outlined text-[32px] text-secondary">shield_with_heart</span>
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.accred2_title">Licensed &amp; Bonded</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.accred2_desc">$2M General Liability Protection</span>
+</div>
+<div class="p-space-md rounded bg-surface-container-lowest shadow-sm flex flex-col items-center gap-space-xs text-center">
+<span class="material-symbols-outlined text-[32px] text-secondary">lightbulb</span>
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.accred3_title">Low-Voltage Lighting</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.accred3_desc">Certified Architectural Illuminators</span>
+</div>
+<div class="p-space-md rounded bg-surface-container-lowest shadow-sm flex flex-col items-center gap-space-xs text-center">
+<span class="material-symbols-outlined text-[32px] text-secondary">military_tech</span>
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.accred4_title">WALP Member</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.accred4_desc">State Landscape Professionals Assn.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Reassurance & Testimonial Quote Spotlight -->
+<section id="testimonials" class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg py-space-3xl">
+<div class="bg-surface-container-lowest p-space-xl md:p-space-2xl rounded-xl shadow-md grid grid-cols-1 lg:grid-cols-12 gap-gutter-lg items-center">
+<div class="lg:col-span-5 rounded-lg overflow-hidden h-[300px] md:h-[360px] relative shadow-inner">
+<img class="w-full h-full object-cover" data-alt="Sunlit courtyard patio framed with flagstone pavers, blooming hydrangeas, creeping thyme between stones, and comfortable outdoor teak seating in a quiet luxury residential garden." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHtj9BHo0ArUOrMPQoG8TbKe40PmqcBYIqTp_e5UvYQ2K0FZEZ1hRU9xabgXO04-wwdW5VWVFG5Pu-G2is6-Umznt_HUhTvTsBJqgH28D84fIm8Ma3BFmITbHbJEYzYNJ2qx8QaV7Y9GjEsmwHgCt9ZQ4jn79wJdrv4ofqZ-aI7KXdYtUjb9Td48lzB0HuPW7oanClGPVSbApTNN3TpNGRn_Pqo-ki7jtAOtwVFWhuVhhYog2mGb0t"/>
+<div class="absolute top-3 left-3 bg-primary text-on-primary font-label-md text-label-md px-3 py-1 rounded-full flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">verified</span>
+<span data-i18n="index.testim_badge">Verified 4-Year Estate Client</span>
+</div>
+</div>
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md text-primary font-bold ml-2" data-i18n="index.testim_rating">5.0 Star Client Rating</span>
+</div>
+<blockquote class="font-headline-sm text-headline-sm text-primary font-medium italic leading-relaxed" data-i18n="index.testim_quote">
+          Every evening, the driveway was swept spotless, the stones were placed with artistic obsession, and our botanical warranty was honored promptly when a rare frost struck. D&G Mendez is in a class of their own.”
+        </blockquote>
+<div class="flex items-center gap-space-sm pt-space-xs">
+<div class="w-12 h-12 rounded-full overflow-hidden bg-surface-container shrink-0">
+<img class="w-full h-full object-cover" data-alt="Portrait of Victoria and David H., smiling happily on their outdoor garden patio with soft natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeFVTjwuK2WgfWH7DbcIMBLxMhm6DSCAA6WoBVY0e-K_Ygdd6C7W90NnA6NYU0dSAu0UIWCkaQpALhinO-JxMzeWc9E7hd3WZoDABK4PNU-c5bhVnJathAJWduR1ptQyeJAK-i5lBxP2AoNKXu86jqSKnJReeJhXKhLP92G3RMiCDvnt5fEBC5bXZSot_g0ilfn4FALCSY8ZBQbn0WQqodh-6uiZ083iNI8W-satj22R7hc6JxPwW9"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-title-md text-primary font-bold" data-i18n="index.testim_author">Victoria &amp; David Henderson</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant" data-i18n="index.testim_role">Proud owners &amp; clients</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. Dual CTA Section -->
+<section id="contact" class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg pb-space-3xl flex flex-col gap-space-lg">
+<!-- Sub-CTA Linking to Services -->
+<div class="bg-surface-container p-space-md md:p-space-lg rounded-lg flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm text-left">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-[22px]">auto_stories</span>
+</div>
+<p class="font-title-md text-title-md text-primary font-semibold" data-i18n="index.cta_curious">
+          Curious about what we can build together?
+        </p>
+</div>
+<a class="inline-flex items-center gap-space-xs font-label-lg text-label-lg text-secondary font-bold hover:text-primary transition-colors shrink-0 group" data-path="landscape-design" href="#">
+<span data-i18n="index.cta_explore">Explore Our Master Disciplines</span>
+<span class="material-symbols-outlined text-[18px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<!-- High-Impact Closing Banner (Deep Forest Green) -->
+<div class="bg-primary rounded-xl p-space-xl md:p-space-2xl text-on-primary shadow-xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-space-xl">
+<!-- Ambient Glow Behind CTA -->
+<div class="absolute -right-20 -bottom-20 w-96 h-96 rounded-full bg-secondary/20 blur-3xl pointer-events-none"></div>
+<div class="max-w-xl flex flex-col gap-space-xs text-center md:text-left z-10">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary-fixed font-bold" data-i18n="index.cta_badge">Take the First Step</span>
+<h2 class="font-headline-lg text-headline-lg font-bold text-on-primary leading-tight" data-i18n="index.cta_headline">
+          Ready to Create Your Own Living Sanctuary?
+        </h2>
+<p class="font-body-md text-body-md text-surface-variant/90 leading-relaxed" data-i18n="index.cta_subtext">
+          Schedule an obligation-free grounds evaluation and soil consultation with our principal landscape architects.
+        </p>
+</div>
+<div class="flex flex-col sm:flex-row items-center gap-space-sm shrink-0 z-10 w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-between h-14 pl-6 pr-2 rounded-full bg-surface-container-lowest text-primary hover:bg-surface-container transition-all shadow-md group" data-path="get-a-free-estimate" href="#">
+<span class="font-label-lg text-label-lg mr-4 font-bold" data-i18n="index.cta_estimate_btn">Get a Free Estimate</span>
+<span class="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-on-secondary transition-transform group-hover:translate-x-0.5">
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-space-xs h-14 px-6 rounded-full bg-primary-container text-on-primary hover:bg-secondary transition-colors font-label-lg text-label-lg" href="tel:5026679020" data-phone-link>
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">phone_in_talk</span>
+<span data-i18n="index.cta_call_btn">Call: (502) 667-9020</span>
+</a>
+</div>
+</div>
+</section>
+</div>
+  </main>
+
+  <!-- Reusable Footer Web Component -->
+  <app-footer root-path=""></app-footer>
+
+
+  <!-- Main Project Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

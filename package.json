@@ -1,0 +1,27 @@
+{
+  "name": "mi-proyecto",
+  "version": "1.0.0",
+  "description": "Sitio web estático desarrollado con HTML5, Tailwind CSS, CSS3 personalizado y JavaScript modular.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^13.0.3",
+    "cookie-parser": "^1.4.7",
+    "express": "^5.3.0",
+    "multer": "^2.4.0"
+  }
+}
