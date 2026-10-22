@@ -3,6 +3,7 @@
 // D&G Mendez Landscaping LLC
 // =============================================
 
+const fs = require('fs');
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -14,10 +15,67 @@ const templates = require('./lib/templates');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Dynamic Server-Side Settings Injection for HTML pages
+function renderHtmlWithSettings(filePath, settings) {
+  let html = fs.readFileSync(filePath, 'utf8');
+  const s = settings || db.getSettings();
+
+  const phone = s.phone || '(502) 667-9020';
+  const phoneRaw = s.phone_raw || phone.replace(/[^0-9]/g, '');
+
+  // 1. Inject synchronous bootstrap script in <head>
+  const bootstrapScript = `<script id="site-settings-bootstrap">window.siteSettings = ${JSON.stringify(s)};</script>`;
+  html = html.replace('</head>', `  ${bootstrapScript}\n</head>`);
+
+  // 2. Replace hardcoded phone links and text
+  html = html.replace(/href="tel:502\d{7}"/g, `href="tel:${phoneRaw}"`);
+  html = html.replace(/\(502\)\s*\d{3}-\d{4}/g, phone);
+
+  // 3. Replace hero section if present
+  if (s.hero_badge_en) {
+    html = html.replace(/(<span data-i18n="index\.badge_about">)[^<]*(<\/span>)/, `$1${s.hero_badge_en}$2`);
+  }
+  if (s.hero_title_en) {
+    html = html.replace(/(<h1[^>]*data-i18n="index\.hero_title"[^>]*>)[\s\S]*?(<\/h1>)/, `$1\n          ${s.hero_title_en}\n$2`);
+  }
+  if (s.hero_desc_en) {
+    html = html.replace(/(<p[^>]*data-i18n="index\.hero_desc"[^>]*>)[\s\S]*?(<\/p>)/, `$1\n          ${s.hero_desc_en}\n$2`);
+  }
+  if (s.hero_card_badge_en) {
+    html = html.replace(/(<span[^>]*data-i18n="index\.hero_card_badge"[^>]*>)[^<]*(<\/span>)/, `$1${s.hero_card_badge_en}$2`);
+  }
+  if (s.hero_card_title_en) {
+    html = html.replace(/(<h3[^>]*data-i18n="index\.hero_card_title"[^>]*>)[^<]*(<\/h3>)/, `$1${s.hero_card_title_en}$2`);
+  }
+  if (s.hero_image) {
+    html = html.replace(/id="hero-panoramic-image"[^>]*style="background-image:\s*url\('[^']*'\)"/, `id="hero-panoramic-image" class="w-full h-[380px] md:h-[500px] bg-cover bg-center" style="background-image: url('${s.hero_image}')"`);
+  }
+
+  return html;
+}
+
 // Body & Cookie Parsers
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
+
+// =============================================
+// PUBLIC ROUTES
+// =============================================
+
+// 1. Home Page (SSR Injected with Live Settings)
+app.get('/', (req, res) => {
+  const settings = db.getSettings();
+  const html = renderHtmlWithSettings(path.join(__dirname, 'index.html'), settings);
+  res.send(html);
+});
+
+// 2. Service Areas Page (SSR Injected with Live Settings)
+app.get('/pages/service-areas.html', (req, res) => {
+  const settings = db.getSettings();
+  const html = renderHtmlWithSettings(path.join(__dirname, 'pages', 'service-areas.html'), settings);
+  res.send(html);
+});
 
 // Static Assets
 app.use('/css', express.static(path.join(__dirname, 'css')));
@@ -26,20 +84,6 @@ app.use('/components', express.static(path.join(__dirname, 'components')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/pages', express.static(path.join(__dirname, 'pages')));
-
-// =============================================
-// PUBLIC ROUTES
-// =============================================
-
-// 1. Home Page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// 2. Service Areas Page
-app.get('/pages/service-areas.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'pages', 'service-areas.html'));
-});
 
 // 3. Blog & Project Showcase List
 app.get('/blog', (req, res) => {
@@ -69,7 +113,8 @@ app.get('/blog', (req, res) => {
     posts,
     categories,
     selectedCategory: category || 'All',
-    search: q || ''
+    search: q || '',
+    settings: db.getSettings()
   });
   res.send(html);
 });
@@ -150,6 +195,7 @@ app.get('/api/posts', (req, res) => {
 
 // 7. API: Get Public Site Settings (JSON for frontend sync)
 app.get('/api/settings', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   const settings = db.getSettings();
   res.json({ success: true, settings });
 });
@@ -346,6 +392,8 @@ app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCo
       published ? 1 : 0
     );
 
+    db.checkpoint();
+
     res.redirect('/admin/posts?msg=' + encodeURIComponent('Project post created successfully with ' + imageList.length + ' image(s)!'));
   } catch (err) {
     console.error('[POST INSERT ERROR]', err);
@@ -417,6 +465,8 @@ app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', 
       id
     );
 
+    db.checkpoint();
+
     res.redirect('/admin/posts?msg=' + encodeURIComponent('Post updated successfully with ' + imageList.length + ' image(s)!'));
   } catch (err) {
     console.error('[POST UPDATE ERROR]', err);
@@ -439,6 +489,7 @@ app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', 
 app.post('/admin/posts/delete/:id', requireAuth, (req, res) => {
   const { id } = req.params;
   db.prepare('DELETE FROM posts WHERE id = ?').run(id);
+  db.checkpoint();
   res.redirect('/admin/posts?msg=' + encodeURIComponent('Post deleted.'));
 });
 

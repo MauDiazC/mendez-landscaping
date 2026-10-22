@@ -12,6 +12,18 @@ class AppFooter extends HTMLElement {
     const isInsidePages = root.includes('..') || window.location.pathname.includes('/pages/');
     const isHttp = typeof window !== 'undefined' && window.location.protocol.startsWith('http');
 
+    // Retrieve active dynamic phone settings (from SSR bootstrap or cache)
+    const currentSettings = (typeof window !== 'undefined' && window.siteSettings) || (() => {
+      try {
+        return JSON.parse(localStorage.getItem('dg_site_settings') || '{}');
+      } catch (e) {
+        return {};
+      }
+    })();
+
+    const phone = currentSettings.phone || '(502) 667-9020';
+    const phoneRaw = currentSettings.phone_raw || phone.replace(/[^0-9]/g, '');
+
     const homeHref = isInsidePages ? `${root}index.html` : (isHttp ? '/' : 'index.html');
     const servicesHref = isInsidePages ? `${root}index.html#services` : '#services';
     const workHref = isHttp ? '/blog' : (isInsidePages ? `${root}index.html#our-story` : '#our-story');
@@ -40,9 +52,9 @@ class AppFooter extends HTMLElement {
             <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
           </span>
         </a>
-        <a class="inline-flex items-center gap-space-xs gap-2 h-12 px-6 rounded-full border border-primary-container/20 text-primary font-label-lg text-label-lg text-sm font-bold hover:bg-surface-container transition-colors" href="tel:5026679020" data-phone-link>
+        <a class="inline-flex items-center gap-space-xs gap-2 h-12 px-6 rounded-full border border-primary-container/20 text-primary font-label-lg text-label-lg text-sm font-bold hover:bg-surface-container transition-colors" href="tel:${phoneRaw}" data-phone-link>
           <span class="material-symbols-outlined text-[20px] text-secondary">call</span>
-          <span data-i18n="footer.cta_call">Call Us: (502) 667-9020</span>
+          <span data-i18n="footer.cta_call">Call Us: ${phone}</span>
         </a>
       </div>
     </div>
@@ -65,7 +77,7 @@ class AppFooter extends HTMLElement {
           <a aria-label="Landscaping Portfolio Showcase" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="${workHref}">
             <span class="material-symbols-outlined text-[18px]">nature_people</span>
           </a>
-          <a aria-label="Customer Care Hotline" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="tel:5026679020" data-phone-link>
+          <a aria-label="Customer Care Hotline" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="tel:${phoneRaw}" data-phone-link>
             <span class="material-symbols-outlined text-[18px]">yard</span>
           </a>
           <a aria-label="Verified Reviews" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="${homeHref}#testimonials">
@@ -109,7 +121,7 @@ class AppFooter extends HTMLElement {
         <div class="flex flex-col gap-space-xs gap-3 font-body-sm text-body-sm text-xs sm:text-sm text-on-surface-variant">
           <div class="flex items-start gap-space-xs gap-2">
             <span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">phone</span>
-            <a href="tel:5026679020" class="hover:text-secondary transition-colors" data-phone-link data-phone>(502) 667-9020</a>
+            <a href="tel:${phoneRaw}" class="hover:text-secondary transition-colors" data-phone-link data-phone>${phone}</a>
           </div>
           <div class="flex items-start gap-space-xs gap-2">
             <span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">mail</span>

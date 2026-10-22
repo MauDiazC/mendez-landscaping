@@ -457,8 +457,55 @@ const translations = {
 // GLOBAL TRANSLATION LOGIC
 // =============================================
 
+function injectSiteSettingsIntoTranslations(settings) {
+  if (!settings) return;
+  const phone = settings.phone || '(502) 667-9020';
+
+  if (translations.en) {
+    if (settings.hero_badge_en) translations.en['index.badge_about'] = settings.hero_badge_en;
+    if (settings.hero_title_en) translations.en['index.hero_title'] = settings.hero_title_en;
+    if (settings.hero_desc_en) translations.en['index.hero_desc'] = settings.hero_desc_en;
+    if (settings.hero_card_badge_en) translations.en['index.hero_card_badge'] = settings.hero_card_badge_en;
+    if (settings.hero_card_title_en) translations.en['index.hero_card_title'] = settings.hero_card_title_en;
+    translations.en['footer.cta_call'] = `Call Us: ${phone}`;
+    translations.en['index.cta_call_btn'] = `Call: ${phone}`;
+    translations.en['areas.bottom_btn_call'] = `Call Dispatch: ${phone}`;
+  }
+
+  if (translations.es) {
+    if (settings.hero_badge_es) translations.es['index.badge_about'] = settings.hero_badge_es;
+    if (settings.hero_title_es) translations.es['index.hero_title'] = settings.hero_title_es;
+    if (settings.hero_desc_es) translations.es['index.hero_desc'] = settings.hero_desc_es;
+    if (settings.hero_card_badge_es) translations.es['index.hero_card_badge'] = settings.hero_card_badge_es;
+    if (settings.hero_card_title_es) translations.es['index.hero_card_title'] = settings.hero_card_title_es;
+    translations.es['footer.cta_call'] = `Llámanos: ${phone}`;
+    translations.es['index.cta_call_btn'] = `Llama: ${phone}`;
+    translations.es['areas.bottom_btn_call'] = `Llamar a Despacho: ${phone}`;
+  }
+}
+
+function getActiveSettings() {
+  if (typeof window !== 'undefined' && window.siteSettings) {
+    return window.siteSettings;
+  }
+  try {
+    const cached = localStorage.getItem('dg_site_settings');
+    if (cached) return JSON.parse(cached);
+  } catch (e) {}
+  return null;
+}
+
 function applyTranslations(lang) {
   if (!translations[lang]) lang = 'en';
+
+  // Synchronize dynamic settings into translations dictionary first
+  const activeSettings = getActiveSettings();
+  if (activeSettings) {
+    injectSiteSettingsIntoTranslations(activeSettings);
+    if (typeof window !== 'undefined' && !window.siteSettings) {
+      window.siteSettings = activeSettings;
+    }
+  }
 
   // Set document lang attribute
   document.documentElement.setAttribute('lang', lang);
@@ -478,6 +525,18 @@ function applyTranslations(lang) {
       el.placeholder = translations[lang][key];
     }
   });
+
+  // Synchronize dynamic phone numbers and call links immediately
+  if (activeSettings && activeSettings.phone) {
+    const p = activeSettings.phone;
+    const pRaw = activeSettings.phone_raw || p.replace(/[^0-9]/g, '');
+    document.querySelectorAll('[data-phone]').forEach((el) => {
+      el.textContent = p;
+    });
+    document.querySelectorAll('a[href^="tel:"], [data-phone-link]').forEach((link) => {
+      link.setAttribute('href', `tel:${pRaw}`);
+    });
+  }
 
   // Synchronize language buttons state
   document.querySelectorAll('[data-lang]').forEach((btn) => {

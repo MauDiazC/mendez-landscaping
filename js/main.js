@@ -355,6 +355,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.applyPhoneSettings = applyPhoneSettings;
 
+  // 1. Check local cache or bootstrap immediately to eliminate any delay
+  const cachedSettings = (typeof window !== 'undefined' && window.siteSettings) || (() => {
+    try {
+      return JSON.parse(localStorage.getItem('dg_site_settings') || 'null');
+    } catch (e) {
+      return null;
+    }
+  })();
+
+  if (cachedSettings) {
+    window.siteSettings = cachedSettings;
+    applyPhoneSettings(cachedSettings);
+  }
+
   async function syncSiteSettings() {
     try {
       const res = await fetch('/api/settings');
@@ -364,6 +378,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const s = data.settings;
       window.siteSettings = s;
+      try {
+        localStorage.setItem('dg_site_settings', JSON.stringify(s));
+      } catch (e) {}
 
       // 1. Update translations dictionary for dynamic i18n
       if (window.translations) {
