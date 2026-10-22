@@ -102,6 +102,38 @@ app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/js', express.static(path.join(__dirname, 'js')));
 app.use('/components', express.static(path.join(__dirname, 'components')));
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
+
+// Serve uploaded images with Turso Cloud fallback & persistent disk caching
+app.get('/uploads/:filename', async (req, res) => {
+  const { filename } = req.params;
+  const uploadsDir = path.join(__dirname, 'uploads');
+  const localPath = path.join(uploadsDir, filename);
+
+  // 1. Fast check: is it already cached on local disk?
+  if (fs.existsSync(localPath)) {
+    return res.sendFile(localPath);
+  }
+
+  // 2. Not on disk: fetch from Turso Cloud Database
+  try {
+    const media = await db.getMedia(filename);
+    if (media && media.data) {
+      // Cache asynchronously to disk for next time
+      fs.writeFile(localPath, media.data, () => {});
+
+      res.setHeader('Content-Type', media.mimeType || 'image/jpeg');
+      res.setHeader('Content-Length', media.data.length);
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      return res.end(media.data);
+    }
+  } catch (err) {
+    console.error(`[MEDIA SERVE ERROR] ${filename}:`, err.message);
+  }
+
+  // 3. Not found
+  return res.status(404).send('Image not found');
+});
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/pages', express.static(path.join(__dirname, 'pages')));
 
@@ -299,8 +331,8 @@ app.get('/admin/posts/new', requireAuth, (req, res) => {
   res.send(html);
 });
 
-// Helper to extract and consolidate multiple images
-function extractImagesFromRequest(req) {
+// Helper to extract and consolidate multiple images (saves uploads to Turso Cloud)
+async function extractImagesFromRequest(req) {
   const imageList = [];
 
   // 1. Existing retained images (from edit mode)
@@ -321,13 +353,19 @@ function extractImagesFromRequest(req) {
   // 2. Newly uploaded files from multiple 'images' input
   if (req.files && req.files.images) {
     for (const f of req.files.images) {
-      imageList.push(`/uploads/${f.filename}`);
+      const url = await db.saveUploadedFile(f);
+      if (url) {
+        imageList.push(url);
+      }
     }
   }
 
   // 3. Newly uploaded file from single 'image' input (legacy compatibility)
   if (req.files && req.files.image && req.files.image[0]) {
-    imageList.push(`/uploads/${req.files.image[0].filename}`);
+    const url = await db.saveUploadedFile(req.files.image[0]);
+    if (url) {
+      imageList.push(url);
+    }
   }
 
   // 4. Primary cover_image_url field if provided
@@ -369,7 +407,7 @@ function extractImagesFromRequest(req) {
 // Create Post Action (Supports multiple images)
 app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCount: 30 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
   const { title, slug, category, location, summary, content, published } = req.body;
-  const { imageList, imagesJson, coverImage } = extractImagesFromRequest(req);
+  const { imageList, imagesJson, coverImage } = await extractImagesFromRequest(req);
 
   // Clean slug
   const cleanSlug = (slug || title || 'post')
@@ -436,7 +474,7 @@ app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', 
     return res.redirect('/admin/posts?msg=' + encodeURIComponent('Post not found.'));
   }
 
-  const { imageList, imagesJson, coverImage } = extractImagesFromRequest(req);
+  const { imageList, imagesJson, coverImage } = await extractImagesFromRequest(req);
 
   const cleanSlug = (slug || title)
     .toLowerCase()
@@ -544,7 +582,7 @@ app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), async
 
     let heroImage = current.hero_image;
     if (req.file) {
-      heroImage = `/uploads/${req.file.filename}`;
+      heroImage = await db.saveUploadedFile(req.file);
     } else if (hero_image_url && hero_image_url.trim()) {
       heroImage = hero_image_url.trim();
     }
