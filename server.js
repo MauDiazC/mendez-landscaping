@@ -1,5 +1,5 @@
 // =============================================
-// MAIN SERVER - EXPRESS & CMS
+// MAIN SERVER - EXPRESS & CMS (Turso Cloud + Local SQLite)
 // D&G Mendez Landscaping LLC
 // =============================================
 
@@ -18,9 +18,9 @@ const PORT = process.env.PORT || 3000;
 // Dynamic Server-Side Settings Injection for HTML pages
 function renderHtmlWithSettings(filePath, settings) {
   let html = fs.readFileSync(filePath, 'utf8');
-  const s = settings || db.getSettings();
+  const s = settings || {};
 
-  const phone = s.phone || '(502) 667-9020';
+  const phone = s.phone || '(502) 677-9020';
   const phoneRaw = s.phone_raw || phone.replace(/[^0-9]/g, '');
 
   // 1. Inject synchronous bootstrap script in <head>
@@ -64,15 +64,15 @@ app.use(cookieParser());
 // =============================================
 
 // 1. Home Page (SSR Injected with Live Settings)
-app.get('/', (req, res) => {
-  const settings = db.getSettings();
+app.get('/', async (req, res) => {
+  const settings = await db.getSettings();
   const html = renderHtmlWithSettings(path.join(__dirname, 'index.html'), settings);
   res.send(html);
 });
 
 // 2. Service Areas Page (SSR Injected with Live Settings)
-app.get('/pages/service-areas.html', (req, res) => {
-  const settings = db.getSettings();
+app.get('/pages/service-areas.html', async (req, res) => {
+  const settings = await db.getSettings();
   const html = renderHtmlWithSettings(path.join(__dirname, 'pages', 'service-areas.html'), settings);
   res.send(html);
 });
@@ -86,43 +86,26 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/pages', express.static(path.join(__dirname, 'pages')));
 
 // 3. Blog & Project Showcase List
-app.get('/blog', (req, res) => {
+app.get('/blog', async (req, res) => {
   const { category, q } = req.query;
-  let sql = 'SELECT * FROM posts WHERE published = 1';
-  const params = [];
-
-  if (category && category !== 'All') {
-    sql += ' AND category = ?';
-    params.push(category);
-  }
-
-  if (q && q.trim()) {
-    sql += ' AND (title LIKE ? OR summary LIKE ? OR content LIKE ? OR location LIKE ?)';
-    const searchPattern = `%${q.trim()}%`;
-    params.push(searchPattern, searchPattern, searchPattern, searchPattern);
-  }
-
-  sql += ' ORDER BY created_at DESC';
-  const posts = db.prepare(sql).all(...params);
-
-  // Get distinct categories
-  const categoryRows = db.prepare('SELECT DISTINCT category FROM posts WHERE published = 1').all();
-  const categories = ['All', ...categoryRows.map(c => c.category).filter(Boolean)];
+  const posts = await db.getPublishedPosts({ category, search: q });
+  const categories = await db.getCategories();
+  const settings = await db.getSettings();
 
   const html = templates.renderBlogList({
     posts,
     categories,
     selectedCategory: category || 'All',
     search: q || '',
-    settings: db.getSettings()
+    settings
   });
   res.send(html);
 });
 
 // 4. Single Blog Post & Case Study
-app.get('/blog/:slug', (req, res) => {
+app.get('/blog/:slug', async (req, res) => {
   const { slug } = req.params;
-  const post = db.prepare('SELECT * FROM posts WHERE slug = ?').get(slug);
+  const post = await db.getPostBySlug(slug);
 
   if (!post || (!post.published && !req.cookies[COOKIE_NAME])) {
     return res.status(404).send(`
@@ -148,14 +131,14 @@ app.get('/blog/:slug', (req, res) => {
     `);
   }
 
-  const recentPosts = db.prepare('SELECT * FROM posts WHERE published = 1 ORDER BY created_at DESC LIMIT 4').all();
-  const settings = db.getSettings();
+  const recentPosts = await db.getRecentPosts(4);
+  const settings = await db.getSettings();
   const html = templates.renderBlogPost({ post, recentPosts, settings });
   res.send(html);
 });
 
 // 5. API: Submit Free Estimate Lead
-app.post('/api/leads', (req, res) => {
+app.post('/api/leads', async (req, res) => {
   const { name, email, phone, service, zip_code, message } = req.body;
 
   if (!name || (!phone && !email)) {
@@ -166,11 +149,14 @@ app.post('/api/leads', (req, res) => {
   }
 
   try {
-    const stmt = db.prepare(`
-      INSERT INTO leads (name, email, phone, service, zip_code, message)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `);
-    stmt.run(name, email || null, phone || null, service || 'General Estimate', zip_code || null, message || null);
+    await db.createLead({
+      name,
+      email: email || null,
+      phone: phone || null,
+      service: service || 'General Estimate',
+      zip_code: zip_code || null,
+      message: message || null
+    });
 
     return res.json({
       success: true,
@@ -178,25 +164,25 @@ app.post('/api/leads', (req, res) => {
     });
   } catch (err) {
     console.error('[LEAD SUBMISSION ERROR]', err);
-    const settings = db.getSettings();
+    const settings = await db.getSettings();
     return res.status(500).json({
       success: false,
-      error: `Unable to save your request. Please call us directly at ${settings.phone || '(502) 667-9020'}.`
+      error: `Unable to save your request. Please call us directly at ${settings.phone || '(502) 677-9020'}.`
     });
   }
 });
 
 // 6. API: Get Latest Posts (JSON for dynamic widgets)
-app.get('/api/posts', (req, res) => {
+app.get('/api/posts', async (req, res) => {
   const limit = Math.min(parseInt(req.query.limit, 10) || 3, 10);
-  const posts = db.prepare('SELECT id, title, slug, summary, cover_image, category, location, created_at FROM posts WHERE published = 1 ORDER BY created_at DESC LIMIT ?').all(limit);
+  const posts = await db.getRecentPosts(limit);
   res.json({ success: true, posts });
 });
 
 // 7. API: Get Public Site Settings (JSON for frontend sync)
-app.get('/api/settings', (req, res) => {
+app.get('/api/settings', async (req, res) => {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-  const settings = db.getSettings();
+  const settings = await db.getSettings();
   res.json({ success: true, settings });
 });
 
@@ -206,7 +192,6 @@ app.get('/api/settings', (req, res) => {
 
 // Admin Login Page
 app.get('/admin/login', (req, res) => {
-  // If already logged in, redirect to admin dashboard
   if (req.cookies[COOKIE_NAME]) {
     return res.redirect('/admin');
   }
@@ -215,9 +200,9 @@ app.get('/admin/login', (req, res) => {
 });
 
 // Admin Login Handler
-app.post('/admin/login', (req, res) => {
+app.post('/admin/login', async (req, res) => {
   const { username, password } = req.body;
-  const user = authenticateUser(username, password);
+  const user = await authenticateUser(username, password);
 
   if (!user) {
     return res.redirect('/admin/login?error=' + encodeURIComponent('Invalid username or password.'));
@@ -244,16 +229,13 @@ app.get('/admin/logout', (req, res) => {
 // =============================================
 
 // Dashboard Overview
-app.get('/admin', requireAuth, (req, res) => {
-  const totalPosts = db.prepare('SELECT COUNT(*) as count FROM posts').get().count;
-  const totalLeads = db.prepare('SELECT COUNT(*) as count FROM leads').get().count;
-  const newLeads = db.prepare("SELECT COUNT(*) as count FROM leads WHERE status = 'new'").get().count;
-
-  const recentLeads = db.prepare('SELECT * FROM leads ORDER BY created_at DESC LIMIT 5').all();
-  const recentPosts = db.prepare('SELECT * FROM posts ORDER BY created_at DESC LIMIT 5').all();
+app.get('/admin', requireAuth, async (req, res) => {
+  const stats = await db.getStats();
+  const recentLeads = await db.getRecentLeads(5);
+  const recentPosts = await db.getRecentPosts(5);
 
   const content = templates.renderAdminDashboard({
-    stats: { totalPosts, totalLeads, newLeads },
+    stats,
     recentLeads,
     recentPosts
   });
@@ -269,8 +251,8 @@ app.get('/admin', requireAuth, (req, res) => {
 });
 
 // Posts List
-app.get('/admin/posts', requireAuth, (req, res) => {
-  const posts = db.prepare('SELECT * FROM posts ORDER BY created_at DESC').all();
+app.get('/admin/posts', requireAuth, async (req, res) => {
+  const posts = await db.getAllPosts();
   const flash = req.query.msg ? decodeURIComponent(req.query.msg) : null;
 
   const content = templates.renderAdminPosts({ posts });
@@ -365,7 +347,7 @@ function extractImagesFromRequest(req) {
 }
 
 // Create Post Action (Supports multiple images)
-app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCount: 30 }, { name: 'image', maxCount: 1 }]), (req, res) => {
+app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCount: 30 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
   const { title, slug, category, location, summary, content, published } = req.body;
   const { imageList, imagesJson, coverImage } = extractImagesFromRequest(req);
 
@@ -377,22 +359,17 @@ app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCo
     .replace(/\s+/g, '-');
 
   try {
-    db.prepare(`
-      INSERT INTO posts (title, slug, category, location, summary, content, cover_image, images, published)
-      VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    `).run(
+    await db.createPost({
       title,
-      cleanSlug,
-      category || 'Projects',
-      location || 'Louisville, KY',
-      summary || null,
+      slug: cleanSlug,
+      category: category || 'Projects',
+      location: location || 'Louisville, KY',
+      summary: summary || null,
       content,
-      coverImage,
-      imagesJson,
-      published ? 1 : 0
-    );
-
-    db.checkpoint();
+      cover_image: coverImage,
+      images: imagesJson,
+      published: published ? 1 : 0
+    });
 
     res.redirect('/admin/posts?msg=' + encodeURIComponent('Project post created successfully with ' + imageList.length + ' image(s)!'));
   } catch (err) {
@@ -413,8 +390,8 @@ app.post('/admin/posts/new', requireAuth, upload.fields([{ name: 'images', maxCo
 });
 
 // Edit Post Form
-app.get('/admin/posts/edit/:id', requireAuth, (req, res) => {
-  const post = db.prepare('SELECT * FROM posts WHERE id = ?').get(req.params.id);
+app.get('/admin/posts/edit/:id', requireAuth, async (req, res) => {
+  const post = await db.getPostById(req.params.id);
   if (!post) {
     return res.redirect('/admin/posts?msg=' + encodeURIComponent('Post not found.'));
   }
@@ -430,11 +407,11 @@ app.get('/admin/posts/edit/:id', requireAuth, (req, res) => {
 });
 
 // Edit Post Action (Supports multiple images)
-app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', maxCount: 30 }, { name: 'image', maxCount: 1 }]), (req, res) => {
+app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', maxCount: 30 }, { name: 'image', maxCount: 1 }]), async (req, res) => {
   const { id } = req.params;
   const { title, slug, category, location, summary, content, published } = req.body;
 
-  const existing = db.prepare('SELECT * FROM posts WHERE id = ?').get(id);
+  const existing = await db.getPostById(id);
   if (!existing) {
     return res.redirect('/admin/posts?msg=' + encodeURIComponent('Post not found.'));
   }
@@ -448,24 +425,17 @@ app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', 
     .replace(/\s+/g, '-');
 
   try {
-    db.prepare(`
-      UPDATE posts
-      SET title = ?, slug = ?, category = ?, location = ?, summary = ?, content = ?, cover_image = ?, images = ?, published = ?, updated_at = CURRENT_TIMESTAMP
-      WHERE id = ?
-    `).run(
+    await db.updatePost(id, {
       title,
-      cleanSlug,
-      category || 'Projects',
-      location || 'Louisville, KY',
-      summary || null,
+      slug: cleanSlug,
+      category: category || 'Projects',
+      location: location || 'Louisville, KY',
+      summary: summary || null,
       content,
-      coverImage,
-      imagesJson,
-      published ? 1 : 0,
-      id
-    );
-
-    db.checkpoint();
+      cover_image: coverImage,
+      images: imagesJson,
+      published: published ? 1 : 0
+    });
 
     res.redirect('/admin/posts?msg=' + encodeURIComponent('Post updated successfully with ' + imageList.length + ' image(s)!'));
   } catch (err) {
@@ -486,16 +456,15 @@ app.post('/admin/posts/edit/:id', requireAuth, upload.fields([{ name: 'images', 
 });
 
 // Delete Post Action
-app.post('/admin/posts/delete/:id', requireAuth, (req, res) => {
+app.post('/admin/posts/delete/:id', requireAuth, async (req, res) => {
   const { id } = req.params;
-  db.prepare('DELETE FROM posts WHERE id = ?').run(id);
-  db.checkpoint();
+  await db.deletePost(id);
   res.redirect('/admin/posts?msg=' + encodeURIComponent('Post deleted.'));
 });
 
 // Leads Management
-app.get('/admin/leads', requireAuth, (req, res) => {
-  const leads = db.prepare('SELECT * FROM leads ORDER BY created_at DESC').all();
+app.get('/admin/leads', requireAuth, async (req, res) => {
+  const leads = await db.getAllLeads();
   const content = templates.renderAdminLeads({ leads });
   const html = templates.renderAdminLayout({
     title: 'Customer Leads',
@@ -507,10 +476,10 @@ app.get('/admin/leads', requireAuth, (req, res) => {
 });
 
 // Update Lead Status
-app.post('/admin/leads/:id/status', requireAuth, (req, res) => {
+app.post('/admin/leads/:id/status', requireAuth, async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
-  db.prepare('UPDATE leads SET status = ? WHERE id = ?').run(status, id);
+  await db.updateLeadStatus(id, status);
   res.redirect('/admin/leads');
 });
 
@@ -519,8 +488,8 @@ app.post('/admin/leads/:id/status', requireAuth, (req, res) => {
 // =============================================
 
 // Settings Page View
-app.get('/admin/settings', requireAuth, (req, res) => {
-  const settings = db.getSettings();
+app.get('/admin/settings', requireAuth, async (req, res) => {
+  const settings = await db.getSettings();
   const flash = req.query.msg ? decodeURIComponent(req.query.msg) : null;
   const content = templates.renderAdminSettings({ settings });
   const html = templates.renderAdminLayout({
@@ -534,9 +503,9 @@ app.get('/admin/settings', requireAuth, (req, res) => {
 });
 
 // Update Settings Handler
-app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), (req, res) => {
+app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), async (req, res) => {
   try {
-    const current = db.getSettings();
+    const current = await db.getSettings();
     const {
       phone,
       phone_raw,
@@ -560,12 +529,11 @@ app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), (req,
       heroImage = hero_image_url.trim();
     }
 
-    // Auto-clean raw phone if empty or not provided
     const cleanPhoneRaw = phone_raw && phone_raw.trim()
       ? phone_raw.replace(/[^0-9]/g, '')
-      : (phone ? phone.replace(/[^0-9]/g, '') : '5026679020');
+      : (phone ? phone.replace(/[^0-9]/g, '') : '5026779020');
 
-    db.updateSettings({
+    await db.updateSettings({
       phone: phone ? phone.trim() : current.phone,
       phone_raw: cleanPhoneRaw,
       hero_badge_en: hero_badge_en !== undefined ? hero_badge_en.trim() : current.hero_badge_en,
@@ -584,7 +552,7 @@ app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), (req,
     res.redirect('/admin/settings?msg=' + encodeURIComponent('Hero and Phone settings successfully updated!'));
   } catch (err) {
     console.error('[SETTINGS UPDATE ERROR]', err);
-    const settings = db.getSettings();
+    const settings = await db.getSettings();
     const content = templates.renderAdminSettings({
       settings,
       error: 'An error occurred while updating settings: ' + err.message
@@ -599,13 +567,23 @@ app.post('/admin/settings', requireAuth, upload.single('hero_image_file'), (req,
   }
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`===============================================`);
-  console.log(`🌿 D&G Mendez Landscaping CMS Server Running!`);
-  console.log(`🌐 Public Website: http://localhost:${PORT}`);
-  console.log(`📖 Projects Blog:   http://localhost:${PORT}/blog`);
-  console.log(`🔐 Admin Panel:     http://localhost:${PORT}/admin`);
-  console.log(`🔑 Default Admin:   admin / mendez2026!`);
-  console.log(`===============================================`);
+// Initialize database and start the server
+async function startServer() {
+  await db.initDatabase();
+
+  app.listen(PORT, () => {
+    console.log(`===============================================`);
+    console.log(`🌿 D&G Mendez Landscaping CMS Server Running!`);
+    console.log(`📡 Database: ${db.isTurso ? '☁️  Turso Cloud' : '💾 Local SQLite'}`);
+    console.log(`🌐 Public Website: http://localhost:${PORT}`);
+    console.log(`📖 Projects Blog:   http://localhost:${PORT}/blog`);
+    console.log(`🔐 Admin Panel:     http://localhost:${PORT}/admin`);
+    console.log(`🔑 Default Admin:   admin / mendez2026!`);
+    console.log(`===============================================`);
+  });
+}
+
+startServer().catch(err => {
+  console.error('❌ Failed to start server:', err);
+  process.exit(1);
 });
