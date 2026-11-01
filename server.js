@@ -84,7 +84,7 @@ app.use(cookieParser());
 // =============================================
 
 // 1. Home Page (SSR Injected with Live Settings)
-app.get('/', async (req, res) => {
+app.get(['/', '/index.html'], async (req, res) => {
   const settings = await db.getSettings();
   const html = renderHtmlWithSettings(path.join(__dirname, 'index.html'), settings);
   res.send(html);

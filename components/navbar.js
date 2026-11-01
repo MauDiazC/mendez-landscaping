@@ -12,12 +12,13 @@ class AppNavbar extends HTMLElement {
     const isInsidePages = root.includes('..') || window.location.pathname.includes('/pages/');
     const isHttp = typeof window !== 'undefined' && window.location.protocol.startsWith('http');
     const activePage = (this.getAttribute('active-page') || '').toLowerCase();
+    const isHomePage = activePage === 'home' || (typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html')));
 
-    const homeHref = isInsidePages ? `${root}index.html` : (isHttp ? '/' : 'index.html');
+    const homeHref = isHttp ? '/' : (isInsidePages ? `${root}index.html` : 'index.html');
     const workHref = isHttp ? '/blog' : (isInsidePages ? `${root}index.html#our-story` : '#our-story');
-    const aboutHref = isInsidePages ? `${root}index.html#about-us` : '#about-us';
-    const serviceAreasHref = isInsidePages ? 'service-areas.html' : `${root}pages/service-areas.html`;
-    const contactHref = isInsidePages ? `${root}index.html#contact` : '#contact';
+    const aboutHref = isHttp ? (isHomePage ? '#about-us' : '/#about-us') : (isInsidePages ? `${root}index.html#about-us` : '#about-us');
+    const serviceAreasHref = isHttp ? '/pages/service-areas.html' : (isInsidePages ? 'service-areas.html' : `${root}pages/service-areas.html`);
+    const contactHref = isHttp ? (isHomePage ? '#contact' : '/#contact') : (isInsidePages ? `${root}index.html#contact` : '#contact');
 
     // Helper for active link styles
     const getDesktopLinkClass = (page) => {

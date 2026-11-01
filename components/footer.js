@@ -24,13 +24,16 @@ class AppFooter extends HTMLElement {
     const phone = currentSettings.phone || '(502) 667-9020';
     const phoneRaw = currentSettings.phone_raw || phone.replace(/[^0-9]/g, '');
 
-    const homeHref = isInsidePages ? `${root}index.html` : (isHttp ? '/' : 'index.html');
-    const servicesHref = isInsidePages ? `${root}index.html#services` : '#services';
+    const isHomePage = typeof window !== 'undefined' && (window.location.pathname === '/' || window.location.pathname.endsWith('/index.html'));
+
+    const homeHref = isHttp ? '/' : (isInsidePages ? `${root}index.html` : 'index.html');
+    const servicesHref = isHttp ? (isHomePage ? '#services' : '/#services') : (isInsidePages ? `${root}index.html#services` : '#services');
     const workHref = isHttp ? '/blog' : (isInsidePages ? `${root}index.html#our-story` : '#our-story');
-    const aboutHref = isInsidePages ? `${root}index.html#about-us` : '#about-us';
-    const serviceAreasHref = isInsidePages ? 'service-areas.html' : `${root}pages/service-areas.html`;
-    const contactHref = isInsidePages ? `${root}index.html#contact` : '#contact';
-    const faqsHref = isInsidePages ? '#faqs' : '#faqs';
+    const aboutHref = isHttp ? (isHomePage ? '#about-us' : '/#about-us') : (isInsidePages ? `${root}index.html#about-us` : '#about-us');
+    const serviceAreasHref = isHttp ? '/pages/service-areas.html' : (isInsidePages ? 'service-areas.html' : `${root}pages/service-areas.html`);
+    const contactHref = isHttp ? (isHomePage ? '#contact' : '/#contact') : (isInsidePages ? `${root}index.html#contact` : '#contact');
+    const testimonialsHref = isHttp ? (isHomePage ? '#testimonials' : '/#testimonials') : `${homeHref}#testimonials`;
+    const faqsHref = isInsidePages ? '#faqs' : (isHttp ? '/pages/service-areas.html#faqs' : `${root}pages/service-areas.html#faqs`);
 
     this.innerHTML = `
 <!-- =============================================
@@ -80,7 +83,7 @@ class AppFooter extends HTMLElement {
           <a aria-label="Customer Care Hotline" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="tel:${phoneRaw}" data-phone-link>
             <span class="material-symbols-outlined text-[18px]">yard</span>
           </a>
-          <a aria-label="Verified Reviews" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="${homeHref}#testimonials">
+          <a aria-label="Verified Reviews" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="${testimonialsHref}">
             <span class="material-symbols-outlined text-[18px]">verified</span>
           </a>
           <a aria-label="Location Services" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors" href="${serviceAreasHref}">
