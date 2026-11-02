@@ -19,6 +19,7 @@ class AppNavbar extends HTMLElement {
     const aboutHref = isHttp ? (isHomePage ? '#about-us' : '/#about-us') : (isInsidePages ? `${root}index.html#about-us` : '#about-us');
     const serviceAreasHref = isHttp ? '/pages/service-areas.html' : (isInsidePages ? 'service-areas.html' : `${root}pages/service-areas.html`);
     const contactHref = isHttp ? (isHomePage ? '#contact' : '/#contact') : (isInsidePages ? `${root}index.html#contact` : '#contact');
+    const logoSrc = isHttp ? '/assets/icons/DG_Mendez_Logo_page-0001.jpg' : `${root}assets/icons/DG_Mendez_Logo_page-0001.jpg`;
 
     // Helper for active link styles
     const getDesktopLinkClass = (page) => {
@@ -52,7 +53,9 @@ class AppNavbar extends HTMLElement {
     
     <!-- Logo & Brand Name -->
     <div class="flex items-center gap-2 sm:gap-space-sm shrink-0">
-      <img alt="D&G Mendez Landscaping Logo" class="h-7 sm:h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeJCV4PNcvxSSUyxuhLrp3aaRrpVPUKsEYpT5-RgdxJAfg5ZgGInF-TI6RmczCJdnf0PkXGnS3QIAKCyMMAIE4Vx1SpsbRFb1bfuyN27qXSBN9PiVRSh1KWoBtIx-ua77IsW9RE4zlr2QA6blDWn9oxUSZ04Zu-yyFTJnX4qwWb9FdCWFV20tSUUtVrZYisv4Mt19lv2oBsCa9WVYVlC1za42o3LgLzQRPGAMShDnq9HBFGH0zEluO"/>
+      <a href="${homeHref}" class="shrink-0 flex items-center">
+        <img alt="D&G Mendez Landscaping Logo" width="50" height="40" style="height: 38px; width: auto; max-height: 42px; mix-blend-mode: multiply;" class="h-9 sm:h-10 max-h-[42px] w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
+      </a>
       <a class="text-[17px] sm:font-headline-sm sm:text-headline-sm tracking-tight text-primary font-bold" data-path="home" href="${homeHref}">
         D&G Mendez <span class="text-secondary font-medium hidden sm:inline">Landscaping</span>
       </a>

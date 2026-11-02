@@ -34,6 +34,7 @@ class AppFooter extends HTMLElement {
     const contactHref = isHttp ? (isHomePage ? '#contact' : '/#contact') : (isInsidePages ? `${root}index.html#contact` : '#contact');
     const testimonialsHref = isHttp ? (isHomePage ? '#testimonials' : '/#testimonials') : `${homeHref}#testimonials`;
     const faqsHref = isInsidePages ? '#faqs' : (isHttp ? '/pages/service-areas.html#faqs' : `${root}pages/service-areas.html#faqs`);
+    const logoSrc = isHttp ? '/assets/icons/DG_Mendez_Logo_page-0001.jpg' : `${root}assets/icons/DG_Mendez_Logo_page-0001.jpg`;
 
     this.innerHTML = `
 <!-- =============================================
@@ -70,7 +71,7 @@ class AppFooter extends HTMLElement {
       <!-- Column 1: Brand & Socials -->
       <div class="flex flex-col gap-space-md gap-4">
         <div class="flex items-center gap-space-sm gap-3">
-          <img alt="D&G Mendez Landscaping Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeJCV4PNcvxSSUyxuhLrp3aaRrpVPUKsEYpT5-RgdxJAfg5ZgGInF-TI6RmczCJdnf0PkXGnS3QIAKCyMMAIE4Vx1SpsbRFb1bfuyN27qXSBN9PiVRSh1KWoBtIx-ua77IsW9RE4zlr2QA6blDWn9oxUSZ04Zu-yyFTJnX4qwWb9FdCWFV20tSUUtVrZYisv4Mt19lv2oBsCa9WVYVlC1za42o3LgLzQRPGAMShDnq9HBFGH0zEluO"/>
+          <img alt="D&G Mendez Landscaping Logo" width="55" height="44" style="height: 44px; width: auto; max-height: 48px; mix-blend-mode: multiply;" class="h-11 max-h-12 w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
           <span class="font-headline-sm text-headline-sm text-lg font-bold tracking-tight text-primary">D&G Mendez</span>
         </div>
         <p class="font-body-sm text-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed" data-i18n="footer.brand_desc">
