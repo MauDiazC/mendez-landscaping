@@ -71,8 +71,8 @@ class AppFooter extends HTMLElement {
       <!-- Column 1: Brand & Socials -->
       <div class="flex flex-col gap-space-md gap-4">
         <div class="flex items-center gap-space-sm gap-3">
-          <img alt="D&G Mendez Landscaping Logo" width="55" height="44" style="height: 44px; width: auto; max-height: 48px; mix-blend-mode: multiply;" class="h-11 max-h-12 w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
-          <span class="font-headline-sm text-headline-sm text-lg font-bold tracking-tight text-primary">D&G Mendez</span>
+          <img alt="D&G Landscaping LLC Logo" width="55" height="44" style="height: 44px; width: auto; max-height: 48px; mix-blend-mode: multiply;" class="h-11 max-h-12 w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
+          <span class="font-headline-sm text-headline-sm text-lg font-bold tracking-tight text-primary">D&G Landscaping LLC</span>
         </div>
         <p class="font-body-sm text-body-sm text-xs sm:text-sm text-on-surface-variant leading-relaxed" data-i18n="footer.brand_desc">
           Professional landscaping &amp; outdoor craftsmanship tailored to elevate American residential properties.
@@ -151,7 +151,7 @@ class AppFooter extends HTMLElement {
   <!-- Bottom Legal Strip -->
   <div class="border-t border-primary-container/10 bg-surface-container-low py-space-md py-4 sm:py-6">
     <div class="w-full max-w-[1280px] mx-auto px-margin md:px-margin-md lg:px-margin-lg px-6 md:px-12 lg:px-20 flex flex-col sm:flex-row items-center justify-between gap-space-sm gap-3 font-body-sm text-body-sm text-xs text-on-surface-variant text-center sm:text-left">
-      <div data-i18n="footer.rights">© 2026 D&G Mendez Landscaping All rights reserved.</div>
+      <div data-i18n="footer.rights">© 2026 D&G Landscaping LLC All rights reserved.</div>
     </div>
   </div>
 </footer>

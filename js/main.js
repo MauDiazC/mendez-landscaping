@@ -384,15 +384,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // 1. Update translations dictionary for dynamic i18n
       if (window.translations) {
+        const cleanBrand = (str) => str ? str.replace(/D&G Mendez Landscaping(\s*LLC)?\.?/gi, 'D&G Landscaping LLC') : str;
         // English Hero
-        if (s.hero_badge_en) window.translations.en['index.badge_about'] = s.hero_badge_en;
+        if (s.hero_badge_en) window.translations.en['index.badge_about'] = cleanBrand(s.hero_badge_en);
         if (s.hero_title_en) window.translations.en['index.hero_title'] = s.hero_title_en;
         if (s.hero_desc_en) window.translations.en['index.hero_desc'] = s.hero_desc_en;
         if (s.hero_card_badge_en) window.translations.en['index.hero_card_badge'] = s.hero_card_badge_en;
         if (s.hero_card_title_en) window.translations.en['index.hero_card_title'] = s.hero_card_title_en;
 
         // Spanish Hero
-        if (s.hero_badge_es) window.translations.es['index.badge_about'] = s.hero_badge_es;
+        if (s.hero_badge_es) window.translations.es['index.badge_about'] = cleanBrand(s.hero_badge_es);
         if (s.hero_title_es) window.translations.es['index.hero_title'] = s.hero_title_es;
         if (s.hero_desc_es) window.translations.es['index.hero_desc'] = s.hero_desc_es;
         if (s.hero_card_badge_es) window.translations.es['index.hero_card_badge'] = s.hero_card_badge_es;

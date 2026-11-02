@@ -44,6 +44,8 @@ function renderHtmlWithSettings(filePath, settings) {
   const phoneRaw = s.phone_raw || phone.replace(/[^0-9]/g, '');
 
   // 1. Inject synchronous bootstrap script in <head>
+  if (s.hero_badge_en) s.hero_badge_en = s.hero_badge_en.replace(/D&G Mendez Landscaping(\s*LLC)?\.?/gi, 'D&G Landscaping LLC');
+  if (s.hero_badge_es) s.hero_badge_es = s.hero_badge_es.replace(/D&G Mendez Landscaping(\s*LLC)?\.?/gi, 'D&G Landscaping LLC');
   const bootstrapScript = `<script id="site-settings-bootstrap">window.siteSettings = ${JSON.stringify(s)};</script>`;
   html = html.replace('</head>', `  ${bootstrapScript}\n</head>`);
 
@@ -166,7 +168,7 @@ app.get('/blog/:slug', async (req, res) => {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Article Not Found | D&G Mendez Landscaping</title>
+        <title>Article Not Found | D&G Landscaping LLC</title>
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
       <body class="bg-[#f1fcf2] min-h-screen flex items-center justify-center p-4 text-center font-sans">

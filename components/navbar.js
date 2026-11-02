@@ -54,10 +54,10 @@ class AppNavbar extends HTMLElement {
     <!-- Logo & Brand Name -->
     <div class="flex items-center gap-2 sm:gap-space-sm shrink-0">
       <a href="${homeHref}" class="shrink-0 flex items-center">
-        <img alt="D&G Mendez Landscaping Logo" width="50" height="40" style="height: 38px; width: auto; max-height: 42px; mix-blend-mode: multiply;" class="h-9 sm:h-10 max-h-[42px] w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
+        <img alt="D&G Landscaping LLC Logo" width="50" height="40" style="height: 38px; width: auto; max-height: 42px; mix-blend-mode: multiply;" class="h-9 sm:h-10 max-h-[42px] w-auto object-contain shrink-0 mix-blend-multiply" src="${logoSrc}"/>
       </a>
-      <a class="text-[17px] sm:font-headline-sm sm:text-headline-sm tracking-tight text-primary font-bold" data-path="home" href="${homeHref}">
-        D&G Mendez <span class="text-secondary font-medium hidden sm:inline">Landscaping</span>
+      <a class="text-[16px] sm:font-headline-sm sm:text-headline-sm tracking-tight text-primary font-bold" data-path="home" href="${homeHref}">
+        D&G <span class="text-secondary font-medium">Landscaping LLC</span>
       </a>
     </div>
 

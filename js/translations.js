@@ -29,7 +29,7 @@ const translations = {
     "footer.hours_weekday": "Mon - Fri: 7:00 AM - 6:00 PM",
     "footer.hours_sat": "Sat: 8:00 AM - 3:00 PM",
     "footer.serving_area": "Serving Greater Kentuckiana &amp; Suburban Communities",
-    "footer.rights": "© 2026 D&G Mendez Landscaping All rights reserved.",
+    "footer.rights": "© 2026 D&G Landscaping LLC All rights reserved.",
     "footer.services_lawn": "Lawn Care",
     "footer.services_design": "Landscape Design",
     "footer.services_garden": "Garden Installation",
@@ -43,7 +43,7 @@ const translations = {
     // -----------------------------------------
     "index.breadcrumb_home": "Home",
     "index.breadcrumb_about": "About Us",
-    "index.badge_about": "About D&G Mendez Landscaping.",
+    "index.badge_about": "About D&G Landscaping LLC",
     "index.hero_title": "Thoughtful Landscaping. <br class=\"hidden sm:inline\"/><span class=\"text-secondary font-medium\">Lasting Impressions.</span>",
     "index.hero_desc": "Founded on the belief that residential outdoor spaces should be enduring living extensions of the home, crafted with horticultural integrity, architectural precision, and respectful client partnerships. We bridge the gap between botanical science, soil vitality, and generational stonework.",
     "index.pillar1_title": "ISA-Certified",
@@ -63,7 +63,7 @@ const translations = {
     // -----------------------------------------
     "index.story_badge": "Our Foundation &amp; Philosophy",
     "index.story_title": "Cultivating Living Sanctuaries",
-    "index.story_p1": "D&G Mendez Landscaping began with a deliberate commitment: to replace the transient, high-turnover nature of conventional \"mow-and-blow\" yard work with dedicated, holistic residential grounds stewardship. We believed private gardens deserved the same architectural rigor, geological integrity, and botanical science traditionally reserved for public conservatories and grand estates.",
+    "index.story_p1": "D&G Landscaping LLC began with a deliberate commitment: to replace the transient, high-turnover nature of conventional \"mow-and-blow\" yard work with dedicated, holistic residential grounds stewardship. We believed private gardens deserved the same architectural rigor, geological integrity, and botanical science traditionally reserved for public conservatories and grand estates.",
     "index.story_p2": "Over nearly two decades, we have evolved into an interdisciplinary collective. Before a shovel touches the earth, our team maps local microclimates, analyzes subsoil microbiomes, calculates sun transit angles, and designs water-retention grades.",
     "index.story_p3": "From hand-chiseled dry-stack fieldstone to mature native plantings that flourish year after year, every square foot is deliberate, resilient, and deeply peaceful.",
     "index.tag_privately_owned": "Privately Owned &amp; Operated",
@@ -127,7 +127,7 @@ const translations = {
     "index.accred4_desc": "State Landscape Professionals Assn.",
     "index.testim_badge": "Verified 4-Year Estate Client",
     "index.testim_rating": "5.0 Star Client Rating",
-    "index.testim_quote": "“Every evening, the driveway was swept spotless, the stones were placed with artistic obsession, and our botanical warranty was honored promptly when a rare frost struck. D&G Mendez is in a class of their own.”",
+    "index.testim_quote": "“Every evening, the driveway was swept spotless, the stones were placed with artistic obsession, and our botanical warranty was honored promptly when a rare frost struck. D&G Landscaping LLC is in a class of their own.”",
     "index.testim_author": "Victoria &amp; David Henderson",
     "index.testim_role": "Proud owners &amp; clients",
 
@@ -171,7 +171,7 @@ const translations = {
     // SERVICE-AREAS.HTML - VALUE PROPOSITIONS
     // -----------------------------------------
     "areas.std_badge": "Standard of Excellence",
-    "areas.std_title": "The D&G Mendez Service Standard",
+    "areas.std_title": "The D&G Landscaping LLC Service Standard",
     "areas.std_desc": "Regardless of your ZIP code or county, our operations ensure consistent punctuality, respectful property care, and horticultural mastery.",
     "areas.pillar1_title": "Microclimate Intelligence",
     "areas.pillar1_desc": "Plants selected for your specific microclimate elevation, sun orientation, and soil porosity to guarantee long-term health and zero nursery replacement waste.",
@@ -205,11 +205,11 @@ const translations = {
     "areas.faq1_a": "You can enter your 5-digit postal code into our live checker at the top of this page or contact our office directly. We proudly serve the entire Greater Louisville and Kentuckiana metro area—including Jefferson, Oldham, Shelby, and Bullitt counties in Kentucky, as well as Clark and Floyd counties across the river in Southern Indiana. For large acreage estates just outside this boundary, our design-build division frequently coordinates custom project consultations.",
     "areas.faq2_q": "Do you charge extra travel fees across counties or over the river into Southern Indiana?",
     "areas.faq2_a": "No. We never charge arbitrary travel surcharges or hidden portal-to-portal fees within our standard Kentuckiana service network. Our crews operate along optimized neighborhood route loops across Louisville and Southern Indiana communities, keeping transit overhead minimal and your service costs predictable and transparent.",
-    "areas.faq3_q": "How quickly can D&amp;G Mendez Landscaping come out for an on-site property walkthrough?",
+    "areas.faq3_q": "How quickly can D&amp;G Landscaping LLC come out for an on-site property walkthrough?",
     "areas.faq3_a": "For seasonal maintenance agreements, cleanups, and property enhancement walkthroughs, an on-site estimate can typically be scheduled within 24 to 48 hours. For comprehensive master-planned hardscaping, stonework, and retaining wall projects across Kentuckiana, our landscape specialists typically schedule consultations within 3 to 5 business days.",
     "areas.faq4_q": "Do you work with local HOA review boards in communities like Norton Commons or Anchorage?",
     "areas.faq4_a": "Yes, extensively. We have regular experience preparing landscape design submittal packages that comply with strict HOA guidelines across Norton Commons, Anchorage, Lake Forest, Springhurst, Glenview, and historic districts like Old Louisville. We assist with plant species selection, grading specifications, and hardscape cut sheets directly for your review committee.",
-    "areas.faq5_q": "Can I request seasonal maintenance if my neighbor also uses D&amp;G Mendez Landscaping?",
+    "areas.faq5_q": "Can I request seasonal maintenance if my neighbor also uses D&amp;G Landscaping LLC?",
     "areas.faq5_a": "Absolutely. In fact, clustering service visits with adjacent or nearby properties in your neighborhood allows us to offer our Kentuckiana Neighborhood Route Discount (up to 10% off recurring seasonal agreements) while minimizing equipment noise and vehicle traffic on your residential street.",
 
     // -----------------------------------------
@@ -253,7 +253,7 @@ const translations = {
     "footer.hours_weekday": "Lun - Vie: 7:00 AM - 6:00 PM",
     "footer.hours_sat": "Sáb: 8:00 AM - 3:00 PM",
     "footer.serving_area": "Sirviendo a Kentuckiana y comunidades suburbanas",
-    "footer.rights": "© 2026 D&G Mendez Landscaping. Todos los derechos reservados.",
+    "footer.rights": "© 2026 D&G Landscaping LLC. Todos los derechos reservados.",
     "footer.services_lawn": "Cuidado de Césped",
     "footer.services_design": "Diseño Paisajístico",
     "footer.services_garden": "Instalación de Jardines",
@@ -267,7 +267,7 @@ const translations = {
     // -----------------------------------------
     "index.breadcrumb_home": "Inicio",
     "index.breadcrumb_about": "Nosotros",
-    "index.badge_about": "Acerca de D&G Mendez Landscaping.",
+    "index.badge_about": "Acerca de D&G Landscaping LLC",
     "index.hero_title": "Jardinería con Propósito. <br class=\"hidden sm:inline\"/><span class=\"text-secondary font-medium\">Impresiones Duraderas.</span>",
     "index.hero_desc": "Fundados en la convicción de que los espacios exteriores deben ser extensiones vivas y perdurables del hogar, creadas con rigor botánico, precisión arquitectónica y relaciones de confianza con el cliente. Unimos la ciencia botánica, la vitalidad del suelo y la cantería de generación en generación.",
     "index.pillar1_title": "Certificados ISA",
@@ -287,7 +287,7 @@ const translations = {
     // -----------------------------------------
     "index.story_badge": "Nuestra Filosofía y Fundamentos",
     "index.story_title": "Cultivando Santuarios Vivos",
-    "index.story_p1": "D&G Mendez Landscaping nació con un propósito claro: sustituir el servicio rápido y superficial convencional por un cuidado integral, dedicado y duradero de los terrenos residenciales. Creemos que los jardines familiares merecen el mismo cuidado arquitectónico, estabilidad estructural y rigor botánico tradicionalmente reservados para grandes parques y fincas.",
+    "index.story_p1": "D&G Landscaping LLC nació con un propósito claro: sustituir el servicio rápido y superficial convencional por un cuidado integral, dedicado y duradero de los terrenos residenciales. Creemos que los jardines familiares merecen el mismo cuidado arquitectónico, estabilidad estructural y rigor botánico tradicionalmente reservados para grandes parques y fincas.",
     "index.story_p2": "A lo largo de casi dos décadas, nos hemos consolidado como un equipo interdisciplinario. Antes de tocar la tierra, estudiamos los microclimas locales, analizamos el suelo, calculamos los ángulos solares y diseñamos pendientes de drenaje óptimas.",
     "index.story_p3": "Desde muros de piedra colocados a mano hasta plantaciones maduras que florecen año tras año, cada metro cuadrado es intencional, resistente y profundamente armonioso.",
     "index.tag_privately_owned": "Empresa Familiar y Privada",
@@ -351,7 +351,7 @@ const translations = {
     "index.accred4_desc": "Asociación de profesionales del paisaje",
     "index.testim_badge": "Cliente Verificado por 4 Años",
     "index.testim_rating": "Calificación de 5.0 Estrellas",
-    "index.testim_quote": "“Cada tarde la entrada quedaba impecable, las piedras se colocaron con una precisión artística admirable y la garantía de plantas se cumplió de inmediato ante una helada inesperada. D&G Mendez juega en otra categoría.”",
+    "index.testim_quote": "“Cada tarde la entrada quedaba impecable, las piedras se colocaron con una precisión artística admirable y la garantía de plantas se cumplió de inmediato ante una helada inesperada. D&G Landscaping LLC juega en otra categoría.”",
     "index.testim_author": "Victoria y David Henderson",
     "index.testim_role": "Clientes y propietarios",
 
@@ -395,7 +395,7 @@ const translations = {
     // SERVICE-AREAS.HTML - VALUE PROPOSITIONS
     // -----------------------------------------
     "areas.std_badge": "Estándar de Excelencia",
-    "areas.std_title": "El Estándar de Servicio D&G Mendez",
+    "areas.std_title": "El Estándar de Servicio D&G Landscaping LLC",
     "areas.std_desc": "Sin importar tu código postal o condado, nuestras cuadrillas aseguran puntualidad, cuidado absoluto de tu propiedad y maestría hortícola.",
     "areas.pillar1_title": "Conocimiento del Microclima",
     "areas.pillar1_desc": "Plantas seleccionadas según la elevación, asoleamiento y porosidad del suelo para asegurar longevidad sin desperdicios ni reemplazos constantes.",
@@ -429,11 +429,11 @@ const translations = {
     "areas.faq1_a": "Puedes ingresar tu código postal de 5 dígitos en nuestro verificador al inicio de esta página o llamar directamente a nuestra oficina. Brindamos servicio a todo el área metropolitana de Greater Louisville y Kentuckiana, incluidos los condados de Jefferson, Oldham, Shelby y Bullitt en Kentucky, así como los condados de Clark y Floyd cruzando el río en Southern Indiana. Para propiedades grandes o fincas fuera de este perímetro, coordinamos visitas y proyectos personalizados.",
     "areas.faq2_q": "¿Cobran cargos adicionales por traslado entre condados o hacia el sur de Indiana?",
     "areas.faq2_a": "No. Nunca cobramos recargos arbitrarios de viaje o tarifas ocultas dentro de nuestra red de servicio establecida en Kentuckiana. Nuestras cuadrillas trabajan en circuitos de vecindarios optimizados tanto en Louisville como en comunidades del sur de Indiana, manteniendo costos predecibles y cotizaciones 100% transparentes.",
-    "areas.faq3_q": "¿Qué tan rápido puede D&G Mendez Landscaping realizar una visita técnica a mi propiedad?",
+    "areas.faq3_q": "¿Qué tan rápido puede D&G Landscaping LLC realizar una visita técnica a mi propiedad?",
     "areas.faq3_a": "Para mantenimiento estacional, limpieza y mejoras de jardín, las visitas suelen programarse en un plazo de 24 a 48 horas. Para proyectos integrales de diseño paisajístico, cantería y muros de contención en Kentuckiana, nuestros especialistas agendan consultas exhaustivas en 3 a 5 días hábiles.",
     "areas.faq4_q": "¿Trabajan con las normativas de asociaciones de vecinos (HOA) como Norton Commons o Anchorage?",
     "areas.faq4_a": "Sí, habitualmente. Contamos con amplia experiencia preparando propuestas de diseño paisajístico que cumplen con las estrictas pautas arquitectónicas de HOA en Norton Commons, Anchorage, Lake Forest, Springhurst, Glenview y áreas históricas como Old Louisville. Proporcionamos listas de especies botánicas, especificaciones de nivelación y detalles de cantería para facilitar la aprobación del comité.",
-    "areas.faq5_q": "¿Puedo solicitar mantenimiento estacional si mis vecinos contiguos también usan D&G Mendez Landscaping?",
+    "areas.faq5_q": "¿Puedo solicitar mantenimiento estacional si mis vecinos contiguos también usan D&G Landscaping LLC?",
     "areas.faq5_a": "Por supuesto. Agrupar visitas de servicio con propiedades vecinas en tu misma calle o subdivisión nos permite ofrecer el Descuento de Ruta Vecinal de Kentuckiana (hasta un 10% de descuento en acuerdos estacionales recurrentes), reduciendo a la vez el tráfico de maquinaria y ruidos en la comunidad.",
 
     // -----------------------------------------
@@ -460,9 +460,10 @@ const translations = {
 function injectSiteSettingsIntoTranslations(settings) {
   if (!settings) return;
   const phone = settings.phone || '(502) 667-9020';
+  const cleanBrand = (str) => str ? str.replace(/D&G Mendez Landscaping(\s*LLC)?\.?/gi, 'D&G Landscaping LLC') : str;
 
   if (translations.en) {
-    if (settings.hero_badge_en) translations.en['index.badge_about'] = settings.hero_badge_en;
+    if (settings.hero_badge_en) translations.en['index.badge_about'] = cleanBrand(settings.hero_badge_en);
     if (settings.hero_title_en) translations.en['index.hero_title'] = settings.hero_title_en;
     if (settings.hero_desc_en) translations.en['index.hero_desc'] = settings.hero_desc_en;
     if (settings.hero_card_badge_en) translations.en['index.hero_card_badge'] = settings.hero_card_badge_en;
@@ -473,7 +474,7 @@ function injectSiteSettingsIntoTranslations(settings) {
   }
 
   if (translations.es) {
-    if (settings.hero_badge_es) translations.es['index.badge_about'] = settings.hero_badge_es;
+    if (settings.hero_badge_es) translations.es['index.badge_about'] = cleanBrand(settings.hero_badge_es);
     if (settings.hero_title_es) translations.es['index.hero_title'] = settings.hero_title_es;
     if (settings.hero_desc_es) translations.es['index.hero_desc'] = settings.hero_desc_es;
     if (settings.hero_card_badge_es) translations.es['index.hero_card_badge'] = settings.hero_card_badge_es;
